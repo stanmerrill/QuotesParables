@@ -1,0 +1,161 @@
+http://localhost:49423/
+http://mns-tage.com/
+       
+--------------------------------------------    
+Visual Studio hot heys
+Cntrl k cntrl d to format a document
+--------------------------------------------    
+Data Source=plumeria.arvixe.com;initial catalog=TAGE-PROD;persist security info=True;user id=smerrill;password=bessI6249e$
+--------------------------------------------    
+var mapPath = System.Web.Hosting.HostingEnvironment.MapPath("~/");
+--------------------------------------------    
+if (HttpContext.Current.Session["CurrentUser"] != null)
+{
+	var user = (LogonAccount)HttpContext.Current.Session["CurrentUser"];
+	ViewBag.User = user;
+	ViewBag.SecurityLevel = user.SecurityLevel;
+}
+--------------------------------------------    
+HttpContext.Current.Session["CurrentUser"]
+HttpContext.Session["ExcelDirectory"]
+HttpContext.Session.Add("User", user);
+HttpContext.Session.Add("UserName", user.Name);
+HttpContext.Session.Add("OrganazationId", user.OrganizationId);
+HttpContext.Session.Add("IsLocal", false);
+HttpContext.Session.Add("ExcelDirectory", @"E:\HostingSpaces\smerrill\mns-tage.com\wwwroot\Documents\");
+HttpContext.Current.Session.Add("BaseUrl", @"/http://localhost:49423/");
+HttpContext.Current.Session.Add("Root", @"C:\Development\Projects\IMH\IMH\");
+HttpContext.Current.Session.Add("ConnectionString",connectionString);
+HttpContext.Current.Session.Add("ConnectionString",
+                "Data Source=plumeria.arvixe.com;initial catalog=TAGE-IMH;persist security info=True;user id=smerrill;password=bessI6249e$");
+--------------------------------------------    
+@{
+}    
+--------------------------------------------    
+@if ()
+{
+	for actual text <p> <\p> helps avoid compiler errors. 
+}else{
+}
+--------------------------------------------    
+from cshtml page
+	@Html.ActionLink("Create New", "Create")
+	@Html.ActionLink("Event List", "Index","Event")<br />
+	<a href="Index/@Model.EventId">Student List</a>
+	@Html.ActionLink("Student List", "Index",new {id = @Model.EventId})<br/>
+	
+from c# page 
+	return RedirectToAction("Index", "Event");
+--------------------------------------------    
+@Html.Raw(Model.PayPalHTML)
+- in the controller
+[ValidateInput(false)]  
+--------------------------------------------    
+Server does not support secure connections
+eMAIL GMAIL fails - Gmail requires special authentication 
+auhp lotg dgov ymhj
+--------------------------------------------    
+sample paypal
+--------------------------------------------    
+- Paypal - IMH 50 cents
+--------------------------------------------    
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="SCXGCTDGXDWJC">
+<input type="submit" value="Click here to pay 50 cents through PayPal">
+</form>
+
+--------------------------------------------    
+- Paypal - IMH 
+--------------------------------------------    
+<form target="_top" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="TYN7MXEFGFELY">
+<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+--------------------------------------------    
+- Paypal - modified IMH
+--------------------------------------------    
+<form target="_top" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="TYN7MXEFGFELY">
+<input type="submit" value="Click here to pay through PayPal">
+</form>
+--------------------------------------------    
+sample text area
+--------------------------------------------    
+<textarea data-val="true" data-val-length="The field PayPalHTML must be a string with a maximum length of 10000." 
+	data-val-length-max="10000" 
+	data-val-maxlength="The field PayPalHTML must be a string or array type with a maximum length of &#39;10000&#39;." data-val-maxlength-max="10000" 
+	id="PayPalHTML" 
+	name="PayPalHTML">
+</textarea>
+@Html.TextAreaFor(model => model.Description, new {@cols = 50, @rows = 5})
+--------------------------------------------    
+CODE FIRST MIGRATIONS 
+--------------------------------------------    
+http://msdn.microsoft.com/en-us/data/jj591621.aspx
+-------------------------------------------- 
+Package Manager console
+------------------------------------------
+new way
+------------------------------------------
+enable-migrations
+add-migration InitialCreate
+Update-Database
+------------------------------------------
+old way
+------------------------------------------
+Enable-Migrations -ContextTypeName IMH.Models.EnrollmentContext
+Enable-Migrations -ContextTypeName FridayThe13th.Models.UtilitiesContext
+Add-Migration Initial -ContextTypeName FridayThe13th.Models.UtilitiesContext
+Add-Migration AddEventFields -EnableAutomaticMigrations
+Update-Database
+------------------------------------------
+Unable to update database to match the current model because there are pending changes and automatic migration is disabled
+Do the following
+------------------------------------------
+Delete the migrations folder in your project
+Delete the __MigrationHistory table in your database (may be under system tables)
+You will find the __MigrationHistory table in your database [Under App_Data Folder]
+Then run the following command in the Package Manager Console:
+Enable-Migrations -ContextTypeName IMH.Models.EnrollmentContext -FORC
+Add-Migration Initial
+Update-Database
+--------------------------------------------    
+Code First Annotations
+--------------------------------------------    
+[Key]
+[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+public int LogonAccountId { get; set; }
+--------------------------------------------    
+Code First Foreign key
+--------------------------------------------    
+[ForeignKey("Organization")]
+public int OrganizationId { get; set; }
+public virtual Organization Organization { get; set; }
+(localdb)/v11.0
+--------------------------------------------    
+[Required]
+[MaxLength(100), MinLength(1)]
+[StringLength(100)]
+[Display(Name = "Name")]
+Email Check
+[RegularExpression(@"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$", ErrorMessage = "Invalid Email Address")]
+Phone Check
+[RegularExpression(@"^\d{3}-?\d{3}-?\d{4}$",
+Create Textarea for a field
+[DataType(DataType.MultilineText)]
+More rows and columns - @Html.TextAreaFor(model => model.Description, new {@cols = 50, @rows = 5})
+DATES
+[DataType(DataType.DateTime)]
+[DisplayFormat(DataFormatString = "{0:d}")]
+Currency
+[DisplayFormat(DataFormatString = "{0:c}", ApplyFormatInEditMode = true)]
+[DataType(DataType.Currency)]
+--------------------------------------------    
+
+
+
+

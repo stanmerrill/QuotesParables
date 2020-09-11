@@ -1,0 +1,98 @@
+﻿@model QuotesParables.Models.Quote
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Quote</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.QuoteType.QuoteTypeDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.QuoteType.QuoteTypeDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RatingType.RatingTypeDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RatingType.RatingTypeDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.QuoteText)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.QuoteText)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AuthorName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AuthorName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Likes)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Likes)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedByLogonAccountId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedByLogonAccountId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdatedByLogonAccountId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UpdatedByLogonAccountId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreateDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdateDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UpdateDate)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.QuoteId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

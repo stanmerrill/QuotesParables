@@ -1,0 +1,69 @@
+﻿@model IEnumerable<QuotesParables.Models.Quote>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Update </h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QuoteText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Likes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedByLogonAccountId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedByLogonAccountId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdateDate)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuoteText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Likes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedByLogonAccountId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedByLogonAccountId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdateDate)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuoteId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuoteId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuoteId })
+        </td>
+    </tr>
+}
+
+</table>

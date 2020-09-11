@@ -1,0 +1,124 @@
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\QuotesParables.Tests.dll.config
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\QuotesParables.Tests.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\QuotesParables.Tests.pdb
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\QuotesParables.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.Razor.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\WebGrease.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Antlr3.Runtime.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\QuotesParables.pdb
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\QuotesParables.dll.config
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.Razor.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\System.Web.Optimization.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\Antlr3.Runtime.pdb
+C:\Development\Projects\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.csprojAssemblyReference.cache
+C:\Development\Projects\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.csproj.CopyComplete
+C:\Development\Projects\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.dll
+C:\Development\Projects\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.pdb
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\EntityFramework.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\EntityFramework.xml
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Development\Projects\QuotesParables.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\QuotesParables.Tests.dll.config
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\QuotesParables.Tests.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\QuotesParables.Tests.pdb
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\EntityFramework.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\QuotesParables.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\WebGrease.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Antlr3.Runtime.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\QuotesParables.pdb
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\QuotesParables.dll.config
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\EntityFramework.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.Mvc.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.Razor.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.WebPages.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\System.Web.Optimization.xml
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\bin\Debug\Antlr3.Runtime.pdb
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.csprojAssemblyReference.cache
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.csproj.CopyComplete
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.dll
+C:\Users\StanXPS\Google Drive\Documents\TextFiles\GitHubTest\GitHubTest\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.pdb
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\QuotesParables.Tests.dll.config
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\QuotesParables.Tests.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\QuotesParables.Tests.pdb
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\EntityFramework.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\QuotesParables.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.Helpers.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.Mvc.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.Razor.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.WebPages.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Razor.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.Optimization.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\WebGrease.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Antlr3.Runtime.dll
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\QuotesParables.pdb
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\QuotesParables.dll.config
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\EntityFramework.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\EntityFramework.SqlServer.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.Helpers.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.Mvc.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.Razor.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.WebPages.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\System.Web.Optimization.xml
+C:\GitSandbox\QuotesParables.Tests\bin\Debug\Antlr3.Runtime.pdb
+C:\GitSandbox\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.csprojAssemblyReference.cache
+C:\GitSandbox\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.csproj.CopyComplete
+C:\GitSandbox\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.dll
+C:\GitSandbox\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.pdb
+C:\GitSandbox\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.csproj.CoreCompileInputs.cache

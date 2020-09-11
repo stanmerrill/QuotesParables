@@ -1,0 +1,96 @@
+﻿@using QuotesParables.Models
+@using QuotesParables.Utilities
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Quotes And Parables</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+@{
+    int securityLevelInt = 1;
+    ViewBag.context = myGlobals.CurrentContext;
+    if (HttpContext.Current.Session["CurrentUser"] != null)
+    {
+        var user = (LogonAccount)HttpContext.Current.Session["CurrentUser"];
+        ViewBag.User = user;
+        ViewBag.SecurityLevel = user.SecurityLevel;
+        securityLevelInt = int.Parse(ViewBag.SecurityLevel);
+    }
+}
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Quotes And Parables", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @{
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Quotes", "Index", "Quotes")</li>
+                        if (securityLevelInt > 1)
+                        {
+                            <li>@Html.ActionLink("Update Quotes", "UpdateList", "Quotes")</li>
+                        }
+                        if (securityLevelInt > 3)
+                        {
+                            <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+                            <li>@Html.ActionLink("QuoteTypes", "Index", "QuoteTypes")</li>
+                            <li>@Html.ActionLink("Favorites", "Index", "Favorites")</li>
+                            <li>@Html.ActionLink("Accounts", "Index", "LogonAccounts")</li>
+                            <li>@Html.ActionLink("Insert", "InputQuotes", "Quotes")</li>
+                            <li>@Html.ActionLink("Duplicates", "FindDuplicates", "Quotes")</li>
+                        }
+                        if (securityLevelInt == 1)
+                        {
+                            <li>@Html.ActionLink("Login", "Login", "Home")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Log Off", "LogOff", "Home", null, null)</li>
+                        }
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @if (ViewBag.ErrorMessages != null && ViewBag.ErrorMessages.Count > 0)
+        {
+            foreach (string msg in ViewBag.ErrorMessages)
+            {
+                <h2red>@msg</h2red><br />
+            }
+        }
+        @if (securityLevelInt > 1 || (ViewBag.OpenToPublic != null && ViewBag.OpenToPublic))
+        {
+            @RenderBody()
+        }
+        else
+        {
+            <div hidden>
+                @RenderBody()
+            </div>
+            <h2red>You must logon</h2red><br />
+            @Html.ActionLink("Click here to go to the quotes", "Index", "Quotes")
+        }
+        <hr />
+        <footer>
+            <p>&copy;@DateTime.Now.Year - Quotes And Parables - @ViewBag.DS - Context = @ViewBag.context</p>
+        </footer>
+    </div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

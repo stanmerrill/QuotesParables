@@ -1,0 +1,20 @@
+Set Git
+Git arguments
+second directory
+get add local buffer
+det local repository
+easy to push it to git hub
+Git add preliminary
+Gig commit makes a copy of the current directory structure
+do multiple commits a day
+git commit 
+machine is primary version of the work, main copy 
+git could work out
+git commit
+create a local repository in this director
+git init
+gitsandbox  
+git add -A
+git commit -a -m "first shot"
+git status
+git log

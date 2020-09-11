@@ -1,0 +1,24 @@
+﻿@model QuotesParables.ViewModels.InputQuotes
+@{
+    ViewBag.Title = "Quotes Input";
+}
+<h2>Quotes Input</h2>
+@{
+    ViewBag.OpenToPublic = true;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div>
+    <font color="blue">Each record should be separated by $$$<br /></font>
+    <input type="submit" value="Create Quotes" class="btn btn-default" />
+</div>
+    <div>
+        <font color="blue">Input - Enter your input below and then click on convert<br /></font>
+        <textarea cols="100" rows="15" id="QuotesInput" name="QuotesInput" style='color: blue; background-color: white; font-size: 18px;'>@Model.QuotesInput</textarea>
+    </div>
+}   <div>
+    <font color="blue">Duplicates<br /></font>
+    <textarea cols="100" rows="15" id="QuotesDuplicates" name="QuotesDuplicates" style='color: blue; background-color: white; font-size: 18px;'>@Model.QuotesDuplicates</textarea>
+</div>
+}
