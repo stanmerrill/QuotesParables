@@ -126,8 +126,8 @@ namespace QuotesParables.Controllers
         public ActionResult Login()
         {
             ViewBag.Message = "Your application description page.";
-
-            return View();
+            LoginViewModel lvm = new LoginViewModel();
+            return View(lvm);
         }
 
         public ActionResult Register()
