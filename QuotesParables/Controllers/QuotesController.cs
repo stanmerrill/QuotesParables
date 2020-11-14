@@ -282,37 +282,52 @@ namespace QuotesParables.Controllers
         {
             if (ModelState.IsValid)
             {
-                Quote newQuote = new Quote();
-                newQuote.QuoteId = editQuoteViewModel.QuoteId;
+                try {
+                    Quote newQuote = new Quote();
+                    newQuote.QuoteId = editQuoteViewModel.QuoteId;
 
-                int lengthBefore, lengthAfter;
-                lengthBefore = editQuoteViewModel.QuoteText.Length;
-                newQuote.QuoteText = editQuoteViewModel.QuoteText.TrimEnd();
-                lengthAfter = newQuote.QuoteText.Length;
+                    int lengthBefore, lengthAfter;
+                    lengthBefore = editQuoteViewModel.QuoteText.Length;
+                    newQuote.QuoteText = editQuoteViewModel.QuoteText.TrimEnd();
+                    lengthAfter = newQuote.QuoteText.Length;
 
-                newQuote.AuthorName = editQuoteViewModel.AuthorName;
-                newQuote.CategoryId = editQuoteViewModel.CategoryId;
-                newQuote.CategoryId2 = editQuoteViewModel.CategoryId2;
-                newQuote.CategoryId3 = editQuoteViewModel.CategoryId3;
-                newQuote.QuoteTypeId = editQuoteViewModel.QuoteTypeId;
-                newQuote.Likes = editQuoteViewModel.Likes;
-                newQuote.UpdateDate = DateTime.Now;
-                newQuote.UpdatedByLogonAccountId = getLogonUser().LogonAccountId;
-                newQuote.CreatedByLogonAccountId = editQuoteViewModel.CreatedByLogonAccountId;
-                newQuote.CreateDate = editQuoteViewModel.CreateDate;
-                db.Entry(newQuote).State = EntityState.Modified;
-                db.SaveChanges();
-                SetSession.SetRepeatUpdate(editQuoteViewModel.repeatUpdate);
-                if (editQuoteViewModel.repeatUpdate == "Y")
+                    newQuote.AuthorName = editQuoteViewModel.AuthorName;
+                    newQuote.CategoryId = editQuoteViewModel.CategoryId;
+                    newQuote.CategoryId2 = editQuoteViewModel.CategoryId2;
+                    newQuote.CategoryId3 = editQuoteViewModel.CategoryId3;
+                    newQuote.QuoteTypeId = editQuoteViewModel.QuoteTypeId;
+                    newQuote.Likes = editQuoteViewModel.Likes;
+                    newQuote.UpdateDate = DateTime.Now;
+                    newQuote.UpdatedByLogonAccountId = getLogonUser().LogonAccountId;
+                    newQuote.CreatedByLogonAccountId = editQuoteViewModel.CreatedByLogonAccountId;
+                    newQuote.CreateDate = editQuoteViewModel.CreateDate;
+                    db.Entry(newQuote).State = EntityState.Modified;
+                    db.SaveChanges();
+                    SetSession.SetRepeatUpdate(editQuoteViewModel.repeatUpdate);
+                    if (editQuoteViewModel.repeatUpdate == "Y")
+                    {
+                        Quote nextQuote = db.Quotes.Where(x => x.UpdatedByLogonAccountId == 2).OrderBy(x => x.QuoteId).FirstOrDefault();
+                        if (nextQuote != null)
+                        {
+                            int nextId = nextQuote.QuoteId;
+                            //editQuoteViewModel.CategoryId = new SelectList(db.Categories.OrderBy(x => x.Description), "CategoryId", "Description");
+                            //editQuoteViewModel.CategoryId = new SelectList(db.Categories, "CategoryId", "Description");
+                            //editQuoteViewModel.quoteTypeId = new SelectList(db.QuoteType, "QuoteTypeId", "QuoteTypeDescription");
+                            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description");
+                            ViewBag.quoteTypeId = new SelectList(db.QuoteType, "QuoteTypeId", "QuoteTypeDescription");
+                            return RedirectToAction("Edit", "Quotes", new { id = nextId });
+                        }
+                    }
+                }
+                catch (Exception exception)
                 {
-                    Quote nextQuote = db.Quotes.Where(x => x.UpdatedByLogonAccountId == 2).OrderBy(x => x.QuoteId).FirstOrDefault();
-                    int nextId = nextQuote.QuoteId;
-                    //editQuoteViewModel.CategoryId = new SelectList(db.Categories.OrderBy(x => x.Description), "CategoryId", "Description");
-                    //editQuoteViewModel.CategoryId = new SelectList(db.Categories, "CategoryId", "Description");
-                    //editQuoteViewModel.quoteTypeId = new SelectList(db.QuoteType, "QuoteTypeId", "QuoteTypeDescription");
-                    ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description");
-                    ViewBag.quoteTypeId = new SelectList(db.QuoteType, "QuoteTypeId", "QuoteTypeDescription");
-                    return RedirectToAction("Edit", "Quotes", new { id = nextId });
+                    ArrayList errorList = new ArrayList();
+                    errorList.Add(exception.Message);
+                    if (exception.InnerException != null)
+                    {
+                        errorList.Add(exception.InnerException.InnerException.Message);
+                    }
+                    ViewBag.ErrorMessages = errorList;
                 }
             }
             return RedirectToAction("Index", "Quotes");

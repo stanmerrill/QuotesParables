@@ -9,10 +9,10 @@ namespace QuotesParables.Models
 {
     public class QuotesRepository
     {
-        QuotesContext quotesContext = new QuotesContext();
         ReturnObject ro = new ReturnObject();
         public ReturnObject insertQuote(Quote myQuote)
         {
+            QuotesContext quotesContext = new QuotesContext();
             try
             {
                 quotesContext.Quotes.Add(myQuote);
@@ -34,6 +34,7 @@ namespace QuotesParables.Models
         }
         public ReturnObject updateQuote(Quote myQuote)
         {
+            QuotesContext quotesContext = new QuotesContext();
             try
             {
                 quotesContext.Entry(myQuote).State = EntityState.Modified;
@@ -55,6 +56,7 @@ namespace QuotesParables.Models
         }
         public ReturnObject getNextQuote()
         {
+            QuotesContext quotesContext = new QuotesContext();
             try
             {
                Quote myQuote = quotesContext.Quotes.Where(x => x.UpdatedByLogonAccountId == 2).OrderBy(x => x.QuoteId).FirstOrDefault();
@@ -82,6 +84,7 @@ namespace QuotesParables.Models
         }
         public ReturnObject getQuoteById(int quoteId)
         {
+            QuotesContext quotesContext = new QuotesContext();
             try
             {
                 Quote myQuote = quotesContext.Quotes.Where(x => x.QuoteId == quoteId).FirstOrDefault();
@@ -109,6 +112,7 @@ namespace QuotesParables.Models
         }
         public ReturnObject getAllQuotes()
         {
+            QuotesContext quotesContext = new QuotesContext();
             try
             {
                 IEnumerable<Quote>  allQuotes = quotesContext.Quotes;
