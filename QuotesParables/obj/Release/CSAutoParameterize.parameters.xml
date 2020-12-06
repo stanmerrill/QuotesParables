@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="QuoteNew-Web.config Connection String" description="QuoteNew Connection String used in web.config by the application to access the database." defaultValue="Data Source=SQL5047.site4now.net;          &#xA;          Initial Catalog=DB_A0FD8B_Quotes;          &#xA;          User Id=DB_A0FD8B_Quotes_admin;          &#xA;          persist security info=True;          &#xA;          Password=kwaben1a;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Development\\Projects\\QuotesParables\\QuotesParables\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='QuoteNew']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Development\\Projects\\GitQuotes\\QuotesParables\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='QuoteNew']/@connectionString" />
   </parameter>
   <parameter name="QuoteTest-Web.config Connection String" description="QuoteTest Connection String used in web.config by the application to access the database." defaultValue="Data Source=SQL5047.site4now.net;          &#xA;          Initial Catalog=DB_A0FD8B_testQuotes          &#xA;          User Id=DB_A0FD8B_testQuotes_admin;          &#xA;          persist security info=True;          &#xA;          Password=kwaben1a;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Development\\Projects\\QuotesParables\\QuotesParables\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='QuoteTest']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Development\\Projects\\GitQuotes\\QuotesParables\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='QuoteTest']/@connectionString" />
   </parameter>
   <parameter name="QuotesContext-Web.config Connection String" description="QuotesContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=sql5047.smarterasp.net;&#xA;        initial catalog=DB_A0FD8B_Quotes;persist security info=True;&#xA;        user id=DB_A0FD8B_Quotes_admin;password=kwaben1a" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Development\\Projects\\QuotesParables\\QuotesParables\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QuotesContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Development\\Projects\\GitQuotes\\QuotesParables\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QuotesContext']/@connectionString" />
   </parameter>
   <parameter name="QuoteTestContext-Web.config Connection String" description="QuoteTestContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=SQL5047.site4now.net;          &#xA;          Initial Catalog=DB_A0FD8B_testQuotes;          &#xA;          User Id=DB_A0FD8B_testQuotes_admin;          &#xA;          persist security info=True;          &#xA;          Password=kwaben1a;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Development\\Projects\\QuotesParables\\QuotesParables\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QuoteTestContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Development\\Projects\\GitQuotes\\QuotesParables\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QuoteTestContext']/@connectionString" />
   </parameter>
   <parameter name="QuotesNewContext-Web.config Connection String" description="QuotesNewContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=SQL5052.site4now.net;          &#xA;          Initial Catalog=DB_A0FD8B_QuotesNew;          &#xA;          User Id=DB_A0FD8B_QuotesNew_admin;          &#xA;          persist security info=True;          &#xA;          Password=kwaben1a;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Development\\Projects\\QuotesParables\\QuotesParables\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QuotesNewContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Development\\Projects\\GitQuotes\\QuotesParables\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QuotesNewContext']/@connectionString" />
   </parameter>
 </parameters>
