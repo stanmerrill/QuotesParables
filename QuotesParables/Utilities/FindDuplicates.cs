@@ -73,9 +73,9 @@ namespace QuotesParables.Utilities
         {
             QuotesContext db = new QuotesContext();
             string truncatedInput; 
-            if(input.Length > 40)
+            if(input.Length >= 40)
             {
-                truncatedInput = input.Substring(10, 40);
+                truncatedInput = input.Substring(0, 40);
             }
             else
             {

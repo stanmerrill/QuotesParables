@@ -33,7 +33,7 @@ namespace QuotesParables.Models
                 var logonAccount = new LogonAccount();
                 logonAccount.Name = "Stan Merrill";
                 logonAccount.EMail = "stan@stanleymerrill.com";
-                logonAccount.Password = "kwaben1a";
+                logonAccount.Password = "Dis2500os";
                 logonAccount.SecurityLevel = "S";
                 context.LogonAccounts.Add(logonAccount);
                 context.SaveChanges();

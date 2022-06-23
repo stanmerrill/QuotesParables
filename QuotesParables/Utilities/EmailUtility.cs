@@ -30,7 +30,7 @@ namespace QuotesParables.Utilities
                     // SMARTERASP - MyDharmaQuotes.com 
                     //---------------------------
                     mail.From = new MailAddress("postmaster@MyDharmaQuotes.com");
-                    NetworkCredential credentials = new NetworkCredential("postmaster@MyDharmaQuotes.com", "kwaben1a");
+                    NetworkCredential credentials = new NetworkCredential("postmaster@MyDharmaQuotes.com", "Dis2500os");
                     SmtpServer = new SmtpClient("mail.MyDharmaQuotes.com");
                     SmtpServer.Credentials = credentials;
                     //____________________________________________________
