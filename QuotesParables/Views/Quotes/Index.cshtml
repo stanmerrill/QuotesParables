@@ -16,54 +16,59 @@
         @Html.AntiForgeryToken()
         <div class="SearchContainerHeader">
         </div>
-        //---------------------------------------------------------
-        //------------Search by text
-        //---------------------------------------------------------
-        <div class="SearchContainerHeader">
-            <div class="searchHeaderDiv">Search:&nbsp;</div>
-            <div class="searchInputDiv">
-                <input type="Text" name="SearchText" id="SearchText" class="textInput" value="@Model.searchText">
+        <div class="row">
+            <div class="text-black col-md-4">
+                <div class="searchHeaderDiv">Search:&nbsp;</div>
+                <div class="SearchContainerHeader">
+                    <div class="searchInputDiv">
+                        <input type="Text" name="SearchText" id="SearchText" class="textInput" value="@Model.searchText">
+                    </div>
+                </div>
+            </div>
+            <div class="text-primary col-md-4">
+                <div class="searchHeaderDiv">Cateogry:</div>
+                <div class="SearchContainerHeader">
+                    <select class="textInput" id="searchCategoryId" name="searchCategoryId">
+                        <option selected="selected" value="0">All</option>
+                        @foreach (var item in catList)
+                        {
+                            if (Model.searchCategoryId == item.CategoryId)
+                            {
+                                <option value="@item.CategoryId" selected="selected">@item.Description</option>
+                            }
+                            else
+                            {
+                                <option value="@item.CategoryId">@item.Description</option>
+                            }
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="text-black col-md-4">
+                <div class="searchHeaderDiv">Type:</div>
+                <div class="SearchContainerHeader">
+                    <select class="textInput" id="searchQuoteTypeId" name="searchQuoteTypeId">
+                        <option selected="selected" value="0">All</option>
+                        @foreach (var item in typeList)
+                        {
+                            if (Model.searchQuoteTypeId == item.QuoteTypeId)
+                            {
+                                <option value="@item.QuoteTypeId" selected="selected">@item.QuoteTypeDescription</option>
+                            }
+                            else
+                            {
+                                <option value="@item.QuoteTypeId">@item.QuoteTypeDescription</option>
+                            }
+                        }
+                    </select>
+                </div>
             </div>
         </div>
-        //---------------------------------------------------------
-        //------------Search by Category
-        //---------------------------------------------------------
-        <div class="SearchContainerHeader">
-            <div class="searchHeaderDiv">Cateogry:</div>
-            <select class="textInput" id="searchCategoryId" name="searchCategoryId">
-                <option selected="selected" value="0">All</option>
-                @foreach (var item in catList)
-                {
-                    if (Model.searchCategoryId == item.CategoryId)
-                    {
-                        <option value="@item.CategoryId" selected="selected">@item.Description</option>
-                    }
-                    else
-                    {
-                        <option value="@item.CategoryId">@item.Description</option>
-                    }
-                }
-            </select>
-        </div>
-        //---------------------------------------------------------
-        //------------Search by Type
-        //---------------------------------------------------------
-        <div class="SearchContainerHeader">
-            <div class="searchHeaderDiv">Type:</div>
-            <select class="textInput" id="searchQuoteTypeId" name="searchQuoteTypeId">
-                <option selected="selected" value="0">All</option>
-                @foreach (var item in typeList)
-                {
-                    if (Model.searchQuoteTypeId == item.QuoteTypeId)
-                    {
-                        <option value="@item.QuoteTypeId" selected="selected">@item.QuoteTypeDescription</option>
-                    }
-                    else
-                    {
-                        <option value="@item.QuoteTypeId">@item.QuoteTypeDescription</option>
-                    }
-                }
-            </select>
+        <div class="row">
+            <div class="text-center">
+                <input type="submit" value="Search" id="SUBMITSEARCH" name="SUBMITSEARCH" class="btn-info" />
+                <input type="submit" value="Reset" id="resetSearchButton" class="btn-info" />
+            </div>
         </div>
         string startRecord = (Model.pagingParameters.newStart + 1).ToString();
         int lastRecordInt;
@@ -77,13 +82,6 @@
         }
         string lastRecord = lastRecordInt.ToString();
         string totalRecords = Model.pagingParameters.totalItemCount.ToString();
-        <div class="SearchContainerHeader">
-            <div class="submitButtonDiv">
-                <input type="submit" value="Search" id="SUBMITSEARCH" name="SUBMITSEARCH" class="submitButton" />&nbsp; &nbsp;
-                <input type="submit" value="Reset" id="resetSearchButton" class="submitButton" />
-                &nbsp;&nbsp;@startRecord - @lastRecord of @totalRecords
-            </div>
-        </div>
         string nextDisabled = "Disabled=\"disabled\" ";
         string previoustDisabled = "Disabled=\"disabled\" ";
         string topDisabled = "Disabled=\"disabled\"";
@@ -107,18 +105,138 @@
         }
         if (Model.pagingParameters.itemsPerPage <= Model.pagingParameters.totalItemCount)
         {
-            <div class="SearchContainerHeader">
-                <div class="submitButtonDiv">
-                    <input type="submit" value="TOP" name="TOP" id="TOP" class="submitButton" @topDisabled />&nbsp;&nbsp;
-                    <input type="submit" value="NEXT" name="NEXT" id="NEXT" class="submitButton" @nextDisabled />&nbsp;&nbsp;
-                    <input type="submit" value="PREV" name="PREVIOUS" id="PREVIOUS" @previoustDisabled class="submitButton" />&nbsp;&nbsp;
-                    <input type="submit" value="BOT" name="BOTTOM" id="BOTTOM" @bottomDisabled class="submitButton" /><br />&nbsp;&nbsp;
+            <div class="row">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div class="submitButtonDiv">
+                        &nbsp;&nbsp;@startRecord - @lastRecord of @totalRecords &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="submit" value="TOP" name="TOP" id="TOP" class="btn-info" @topDisabled />&nbsp;&nbsp;
+                        <input type="submit" value="NEXT" name="NEXT" id="NEXT" class="btn-info" @nextDisabled />&nbsp;&nbsp;
+                        <input type="submit" value="PREV" name="PREVIOUS" id="PREVIOUS" @previoustDisabled class="btn-info" />&nbsp;&nbsp;
+                        <input type="submit" value="BOT" name="BOTTOM" id="BOTTOM" @bottomDisabled class="btn-info" /><br />&nbsp;&nbsp;
+                    </div>
                 </div>
             </div>
         }
-        https://localhost:44310///---------------------------------------------------------
-              //------------Set Security Level
-              //---------------------------------------------------------
+        else
+        {
+            <div class="SearchContainerHeader text-center">
+                <div class="submitButtonDiv">
+                    &nbsp;&nbsp;@startRecord - @lastRecord of @totalRecords
+                </div>
+            </div>
+
+        }
+<hr />
+        <div class="row">
+            <div class="col-md-4 shadow-lg rounded bg-light mb-3" style="height:325px">
+                <div class="text-end p-3">
+                    <a href="" class="btn btn-primary" target="_blank"
+                       rel="noopener noreferrer">Edit</a>
+                    <a href="" class="btn btn-primary text-end" target="_blank"
+                       rel="noopener noreferrer">Delete</a>
+                </div>
+                <div>
+                    <label>Author:&nbsp;</label><label class="text-primary">Bill Byrson</label>
+                </div>
+                <div>
+                    <label>Category:&nbsp;</label><label class="text-primary">Say what</label>
+                </div>
+                <div class="bd-example d-md-flex h-50">
+                    <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light  ">
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary">Like</button>
+                    <label>&nbsp;&nbsp; No of Likes: 5</label>
+                </div>
+            </div>
+            <div class="col-md-4 shadow-lg rounded bg-light mb-3" style="height:325px">
+                <div class="text-end p-3">
+                    <a href="" class="btn btn-primary" target="_blank"
+                       rel="noopener noreferrer">Edit</a>
+                    <a href="" class="btn btn-primary text-end" target="_blank"
+                       rel="noopener noreferrer">Delete</a>
+                </div>
+                <div>
+                    <label>Author:&nbsp;</label><label class="text-primary">Bill Byrson</label>
+                </div>
+                <div>
+                    <label>Category:&nbsp;</label><label class="text-primary">Say what</label>
+                </div>
+                <div class="bd-example d-md-flex h-50">
+                    <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light  ">
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary">Like</button>
+                    <label>&nbsp;&nbsp; No of Likes: 5</label>
+                </div>
+            </div>
+            <div class="col-md-4 shadow-lg rounded bg-light mb-3" style="height:325px">
+                <div class="text-end p-3">
+                    <a href="" class="btn btn-primary" target="_blank"
+                       rel="noopener noreferrer">Edit</a>
+                    <a href="" class="btn btn-primary text-end" target="_blank"
+                       rel="noopener noreferrer">Delete</a>
+                </div>
+                <div>
+                    <label>Author:&nbsp;</label><label class="text-primary">Bill Byrson</label>
+                </div>
+                <div>
+                    <label>Category:&nbsp;</label><label class="text-primary">Say what</label>
+                </div>
+                <div class="bd-example d-md-flex h-50">
+                    <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light  ">
+                        Tell me, what is it you plan to do with your one wild and precious life?”
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary">Like</button>
+                    <label>&nbsp;&nbsp; No of Likes: 5</label>
+                </div>
+            </div>
+        </div>
+
+
+
+        //---------------------------------------------------------
+        //------------Set Security Level
+        //---------------------------------------------------------
         int securityLevelInt = 1;
         if (HttpContext.Current.Session["CurrentUser"] != null)
         {
@@ -227,10 +345,10 @@
         {
             <div class="SearchContainerHeader">
                 <div class="submitButtonDiv">
-                    <input type="submit" value="TOP" name="TOP" id="TOP" class="submitButton" @topDisabled />&nbsp;&nbsp;
-                    <input type="submit" value="NEXT" name="NEXT" id="NEXT" class="submitButton" @nextDisabled />&nbsp;&nbsp;
-                    <input type="submit" value="PREV" name="PREVIOUS" id="PREVIOUS" @previoustDisabled class="submitButton" />&nbsp;&nbsp;
-                    <input type="submit" value="BOT" name="BOTTOM" id="BOTTOM" @bottomDisabled class="submitButton" /><br />&nbsp;&nbsp;
+                    <input type="submit" value="TOP" name="TOP" id="TOP" class="btn-info" @topDisabled />&nbsp;&nbsp;
+                    <input type="submit" value="NEXT" name="NEXT" id="NEXT" class="btn-info" @nextDisabled />&nbsp;&nbsp;
+                    <input type="submit" value="PREV" name="PREVIOUS" id="PREVIOUS" @previoustDisabled class="btn-info" />&nbsp;&nbsp;
+                    <input type="submit" value="BOT" name="BOTTOM" id="BOTTOM" @bottomDisabled class="btn-info" /><br />&nbsp;&nbsp;
                 </div>
             </div>
         }
