@@ -149,9 +149,9 @@
         {
             if (counter == 0)
             {
-                sb.Append("        <div class=\"row\">");
+                sb.Append("        <div class=\"row b-5\">");
             }
-            sb.Append("            <div class=\"col-md-4 shadow-lg rounded bg-light mb-3\" >"); sb.Append(Environment.NewLine);
+            sb.Append("            <div class=\"col-lg-3 col-md-6 col-sm-12 shadow-lg rounded bg-light  \" >"); sb.Append(Environment.NewLine);
             sb.Append("                <div class=\"text-end p-3\">"); sb.Append(Environment.NewLine);
             //edit
             sb.Append("                    <a href=\"/Quotes/Edit/");
@@ -206,8 +206,12 @@
             sb.Append(item.Likes);
             sb.Append("                    </label>"); sb.Append(Environment.NewLine);
             sb.Append("                </div>"); sb.Append(Environment.NewLine);
+            sb.Append("            <div>"); sb.Append(Environment.NewLine);
+            sb.Append("&nbsp;"); sb.Append(Environment.NewLine);
             sb.Append("            </div>"); sb.Append(Environment.NewLine);
-            if (counter == 2)
+            sb.Append("            </div>"); sb.Append(Environment.NewLine);
+
+            if (counter == 3)
             {
                 sb.Append("            </div>");
                 counter = 0;
