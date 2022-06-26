@@ -1,5 +1,6 @@
 ﻿@using QuotesParables.Models;
 @using QuotesParables.ViewModels;
+@using System.Text;
 
 @model QuoteListViewModel
 
@@ -130,7 +131,7 @@
 
         }
 <hr />
-        <div class="row">
+        @*<div class="row">
             <div class="col-md-4 shadow-lg rounded bg-light mb-3" style="height:325px">
                 <div class="text-end p-3">
                     <a href="" class="btn btn-primary" target="_blank"
@@ -230,7 +231,7 @@
                     <label>&nbsp;&nbsp; No of Likes: 5</label>
                 </div>
             </div>
-        </div>
+        </div>*@
 
 
 
@@ -245,9 +246,63 @@
             ViewBag.SecurityLevel = user.SecurityLevel;
             securityLevelInt = int.Parse(ViewBag.SecurityLevel);
         }
+        StringBuilder sb = new StringBuilder();
+        int counter = 0;
+        string test = "";
         foreach (var item in Model.quotesList)
         {
-            string headerOutput = "<div class=\"containerHeader\">";
+            if (counter == 0)
+            {
+                sb.Append("        <div class=\"row\">");
+            }
+            sb.Append("            <div class=\"col-md-4 shadow-lg rounded bg-light mb-3\" style=\"height:325px\">"); sb.Append(Environment.NewLine);
+            sb.Append("                <div class=\"text-end p-3\">"); sb.Append(Environment.NewLine);
+            sb.Append("                    <a href=\"\" class=\"btn btn-primary\" target=\"_blank\""); sb.Append(Environment.NewLine);
+            sb.Append("                       rel=\"noopener noreferrer\">Edit</a>"); sb.Append(Environment.NewLine);
+            sb.Append("                    <a href=\"\" class=\"btn btn-primary text-end\" target=\"_blank\""); sb.Append(Environment.NewLine);
+            sb.Append("                       rel=\"noopener noreferrer\">Delete</a>"); sb.Append(Environment.NewLine);
+            sb.Append("                </div>"); sb.Append(Environment.NewLine);
+            sb.Append("                <div>"); sb.Append(Environment.NewLine);
+            sb.Append("                    <label>Author:&nbsp;</label><label class=\"text-primary\">"); sb.Append(Environment.NewLine);
+            sb.Append(item.AuthorName); sb.Append(Environment.NewLine);
+            sb.Append("                    </label>"); sb.Append(Environment.NewLine);
+            sb.Append("                </div>"); sb.Append(Environment.NewLine);
+            sb.Append("                <div>"); sb.Append(Environment.NewLine);
+            sb.Append("                    <label>Category:&nbsp;</label><label class=\"text-primary\">"); sb.Append(Environment.NewLine);
+            sb.Append(item.CategoryId); sb.Append(Environment.NewLine);
+            sb.Append("                    </label>"); sb.Append(Environment.NewLine);
+            sb.Append("                </div>"); sb.Append(Environment.NewLine);
+            sb.Append("                <div class=\"bd-example d-md-flex h-50\">"); sb.Append(Environment.NewLine);
+            sb.Append("                    <div class=\"overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light  \">"); sb.Append(Environment.NewLine);
+            sb.Append(item.QuoteText); sb.Append(Environment.NewLine);
+            sb.Append("                    </div>"); sb.Append(Environment.NewLine);
+            sb.Append("                </div>"); sb.Append(Environment.NewLine);
+            sb.Append("                <div>"); sb.Append(Environment.NewLine);
+            sb.Append("                    <button type=\"button\" class=\"btn btn-primary\">Like</button>"); sb.Append(Environment.NewLine);
+            sb.Append("                    <label>&nbsp;&nbsp; No of Likes: "); sb.Append(Environment.NewLine);
+            sb.Append(item.Likes); sb.Append(Environment.NewLine);
+            sb.Append("                    </label>"); sb.Append(Environment.NewLine);
+            sb.Append("                </div>"); sb.Append(Environment.NewLine);
+            sb.Append("            </div>"); sb.Append(Environment.NewLine);
+            if (counter == 2)
+            {
+                sb.Append("            </div>");
+                counter = 0;
+            }
+            else
+            {
+                counter++;
+            }
+            test = sb.ToString();
+        }
+        @Html.Raw(test);
+
+        @*foreach (var item in Model.quotesList)
+        {
+            string headerOutput = "";
+            headerOutput += sb.ToString();
+            headerOutput += "<div class=\"containerHeader\">";
+
             if (securityLevelInt > 1)
             {
                 //---------------------------------------------------------
@@ -340,7 +395,7 @@
             }
             @Html.Raw("</div>");
         }
-        @Html.Raw("<div class=\"endDiv\"></div>");
+        @Html.Raw("<div class=\"endDiv\"></div>");*@
         if (Model.pagingParameters.itemsPerPage <= Model.pagingParameters.totalItemCount)
         {
             <div class="SearchContainerHeader">
