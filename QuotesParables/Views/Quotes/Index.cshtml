@@ -131,110 +131,6 @@
 
         }
         <hr />
-        @*<div class="row">
-                <div class="col-md-4 shadow-lg rounded bg-light mb-3" style="height:325px">
-                    <div class="text-end p-3">
-                        <a href="" class="btn btn-primary" target="_blank"
-                           rel="noopener noreferrer">Edit</a>
-                        <a href="" class="btn btn-primary text-end" target="_blank"
-                           rel="noopener noreferrer">Delete</a>
-                    </div>
-                    <div>
-                        <label>Author:&nbsp;</label><label class="text-primary">Bill Byrson</label>
-                    </div>
-                    <div>
-                        <label>Category:&nbsp;</label><label class="text-primary">Say what</label>
-                    </div>
-                    <div class="bd-example d-md-flex h-50">
-                        <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light  ">
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                        </div>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-primary">Like</button>
-                        <label>&nbsp;&nbsp; No of Likes: 5</label>
-                    </div>
-                </div>
-                <div class="col-md-4 shadow-lg rounded bg-light mb-3" style="height:325px">
-                    <div class="text-end p-3">
-                        <a href="" class="btn btn-primary" target="_blank"
-                           rel="noopener noreferrer">Edit</a>
-                        <a href="" class="btn btn-primary text-end" target="_blank"
-                           rel="noopener noreferrer">Delete</a>
-                    </div>
-                    <div>
-                        <label>Author:&nbsp;</label><label class="text-primary">Bill Byrson</label>
-                    </div>
-                    <div>
-                        <label>Category:&nbsp;</label><label class="text-primary">Say what</label>
-                    </div>
-                    <div class="bd-example d-md-flex h-50">
-                        <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light  ">
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                        </div>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-primary">Like</button>
-                        <label>&nbsp;&nbsp; No of Likes: 5</label>
-                    </div>
-                </div>
-                <div class="col-md-4 shadow-lg rounded bg-light mb-3" style="height:325px">
-                    <div class="text-end p-3">
-                        <a href="" class="btn btn-primary" target="_blank"
-                           rel="noopener noreferrer">Edit</a>
-                        <a href="" class="btn btn-primary text-end" target="_blank"
-                           rel="noopener noreferrer">Delete</a>
-                    </div>
-                    <div>
-                        <label>Author:&nbsp;</label><label class="text-primary">Bill Byrson</label>
-                    </div>
-                    <div>
-                        <label>Category:&nbsp;</label><label class="text-primary">Say what</label>
-                    </div>
-                    <div class="bd-example d-md-flex h-50">
-                        <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light  ">
-                            Tell me, what is it you plan to do with your one wild and precious life?”
-                        </div>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-primary">Like</button>
-                        <label>&nbsp;&nbsp; No of Likes: 5</label>
-                    </div>
-                </div>
-            </div>*@
-
-
-
         //---------------------------------------------------------
         //------------Set Security Level
         //---------------------------------------------------------
@@ -270,21 +166,21 @@
             sb.Append("                </div>"); sb.Append(Environment.NewLine);
             //Author
             sb.Append("                <div>"); sb.Append(Environment.NewLine);
-            sb.Append("                    <label>Author:&nbsp;</label><label class=\"text-primary\">"); sb.Append(Environment.NewLine);
-            sb.Append(item.AuthorName); sb.Append(Environment.NewLine);
+            sb.Append("                    <label>Author:&nbsp;</label><label class=\"text-primary\">");
+            sb.Append(item.AuthorName);
             sb.Append("                    </label>"); sb.Append(Environment.NewLine);
             sb.Append("                </div>"); sb.Append(Environment.NewLine);
             // Category
             sb.Append("                <div>"); sb.Append(Environment.NewLine);
-            sb.Append("                    <label>Category:&nbsp;</label><label class=\"text-primary\">"); sb.Append(Environment.NewLine);
+            sb.Append("                    <label>Category:&nbsp;</label><label class=\"text-primary\">");
             string categoryDisplay = Model.getCategoryText(item.CategoryId, item.CategoryId2, item.CategoryId3);
-            sb.Append(categoryDisplay); sb.Append(Environment.NewLine);
+            sb.Append(categoryDisplay);
             sb.Append("                    </label>"); sb.Append(Environment.NewLine);
             sb.Append("                </div>"); sb.Append(Environment.NewLine);
             // Type
             sb.Append("                <div>"); sb.Append(Environment.NewLine);
-            sb.Append("                    <label>Type:&nbsp;</label><label class=\"text-primary\">"); sb.Append(Environment.NewLine);
-            sb.Append(item.QuoteType.QuoteTypeDescription); sb.Append(Environment.NewLine);
+            sb.Append("                    <label>Type:&nbsp;</label><label class=\"text-primary\">");
+            sb.Append(item.QuoteType.QuoteTypeDescription);
             sb.Append("                    </label>"); sb.Append(Environment.NewLine);
             sb.Append("                </div>"); sb.Append(Environment.NewLine);
             // Quote Text
@@ -301,12 +197,13 @@
                     sb.Append(outputLine);
                 }
             }
+            sb.Append(Environment.NewLine);
             sb.Append("                    </div>"); sb.Append(Environment.NewLine);
             sb.Append("                </div>"); sb.Append(Environment.NewLine);
             sb.Append("                <div>"); sb.Append(Environment.NewLine);
             sb.Append("                    <button type=\"button\" class=\"btn btn-primary\">Like</button>"); sb.Append(Environment.NewLine);
-            sb.Append("                    <label>&nbsp;&nbsp; No of Likes: "); sb.Append(Environment.NewLine);
-            sb.Append(item.Likes); sb.Append(Environment.NewLine);
+            sb.Append("                    <label>&nbsp;&nbsp; No of Likes: ");
+            sb.Append(item.Likes);
             sb.Append("                    </label>"); sb.Append(Environment.NewLine);
             sb.Append("                </div>"); sb.Append(Environment.NewLine);
             sb.Append("            </div>"); sb.Append(Environment.NewLine);
