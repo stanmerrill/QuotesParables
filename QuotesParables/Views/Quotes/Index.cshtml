@@ -151,7 +151,7 @@
             {
                 sb.Append("        <div class=\"row\">");
             }
-            sb.Append("            <div class=\"col-md-4 shadow-lg rounded bg-light mb-3\" style=\"height:325px\">"); sb.Append(Environment.NewLine);
+            sb.Append("            <div class=\"col-md-4 shadow-lg rounded bg-light mb-3\" >"); sb.Append(Environment.NewLine);
             sb.Append("                <div class=\"text-end p-3\">"); sb.Append(Environment.NewLine);
             //edit
             sb.Append("                    <a href=\"/Quotes/Edit/");
@@ -185,7 +185,7 @@
             sb.Append("                </div>"); sb.Append(Environment.NewLine);
             // Quote Text
             sb.Append("                <div class=\"bd-example d-md-flex h-50\">"); sb.Append(Environment.NewLine);
-            sb.Append("                    <div class=\"overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light  \">"); sb.Append(Environment.NewLine);
+            sb.Append("                    <div class=\"overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light  \" style=\"height:150px\" >"); sb.Append(Environment.NewLine);
             string currentLine = item.QuoteText.Replace(Environment.NewLine, "~").TrimEnd();
             string outputLine = "";
             string[] lines = currentLine.Split('~');
