@@ -26,84 +26,76 @@
     }
 }
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    @*<stye>
+        .navbar ul li a {
+        color:#fff;}
+        .navbar ul li a:hover {
+        color:#000;}
+    </stye>*@
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary" >
         <div class="container-fluid">
-            <div class="navbar-header">
-                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Quotes", "Index", "Quotes", new { area = "" },new { @class = "navbar-brand" })
-                @{
-                    if (securityLevelInt > 1)
-                    {
-                        @Html.ActionLink("Update Quotes", "UpdateList", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
-                    }
-                    if (securityLevelInt > 3)
-                    {
-                        @Html.ActionLink("Categories", "Index", "Categories", new { area = "" }, new { @class = "navbar-brand" })
-                        @Html.ActionLink("QuoteTypes", "Index", "QuoteTypes", new { area = "" }, new { @class = "navbar-brand" })
-                        @Html.ActionLink("Favorites", "Index", "Favorites", new { area = "" }, new { @class = "navbar-brand" })
-                        @Html.ActionLink("Accounts", "Index", "LogonAccounts", new { area = "" }, new { @class = "navbar-brand" })
-                        @Html.ActionLink("Insert", "InputQuotes", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
-                        @Html.ActionLink("Duplicates", "FindDuplicates", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample04">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        @Html.ActionLink("Quotes", "Index", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
+                    </li>
+                    @{
+                        if (securityLevelInt > 1)
+                        {
+                            <li class="nav-item">
+                                @Html.ActionLink("Update Quotes", "UpdateList", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
+                            </li>
                         }
-                    if (securityLevelInt == 1)
-                    {
-                        @Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        if (securityLevelInt > 3)
+                        {
+                            <a class="nav-link navbar-brand dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Maintenance</a>
+                            <ul class="dropdown-menu p-2" aria-labelledby="dropdown04">
+                                <li class="nav-item">
+                                    @Html.ActionLink("Categories", "Index", "Categories", new { area = "" }, new { @class = "navbar-primary" })
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("QuoteTypes", "Index", "QuoteTypes", new { area = "" }, new { @class = "navbar-primary" })
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("Favorites", "Index", "Favorites", new { area = "" }, new { @class = "navbar-primary" })
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("Accounts", "Index", "LogonAccounts", new { area = "" }, new { @class = "navbar-primary" })
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("Insert", "InputQuotes", "Quotes", new { area = "" }, new { @class = "navbar-primary" })
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("Duplicates", "FindDuplicates", "Quotes", new { area = "" }, new { @class = "navbar-primary" })
+                                </li>
+                            </ul>
+                        }
+                        <li class="nav-item">
+                            @Html.ActionLink("About", "Index", "Home", new { area = "" }, new { @class = "navbar-brand active" })
+                        </li>
+                        if (securityLevelInt == 1)
+                        {
+                            <li class="nav-item">
+                                @Html.ActionLink("Login", "Login", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                @Html.ActionLink("Log Off", "LogOff", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                            </li>
+                        }
                     }
-                    else
-                    {
-                        @Html.ActionLink("Log Off", "LogOff", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    }
-                }
-            </div>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li></li>
-                </ul>
+                    @*<form role="search">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        </form>*@
             </div>
         </div>
     </nav>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        @{
-                            <li>@Html.ActionLink("Quotes", "Index", "Quotes")</li>
-                            if (securityLevelInt > 1)
-                            {
-                                <li>@Html.ActionLink("Update Quotes", "UpdateList", "Quotes")</li>
-                            }
-                            if (securityLevelInt > 3)
-                            {
-                                <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                                <li>@Html.ActionLink("QuoteTypes", "Index", "QuoteTypes")</li>
-                                <li>@Html.ActionLink("Favorites", "Index", "Favorites")</li>
-                                <li>@Html.ActionLink("Accounts", "Index", "LogonAccounts")</li>
-                                <li>@Html.ActionLink("Insert", "InputQuotes", "Quotes")</li>
-                                <li>@Html.ActionLink("Duplicates", "FindDuplicates", "Quotes")</li>
-                            }
-                            if (securityLevelInt == 1)
-                            {
-                                <li>@Html.ActionLink("Login", "Login", "Home")</li>
-                            }
-                            else
-                            {
-                                <li>@Html.ActionLink("Log Off", "LogOff", "Home", null, null)</li>
-                            }
-                        }
-
-                    </ul>
-                </div>
-            </div>
-        </div>*@
     <div class="container body-content">
         @if (ViewBag.ErrorMessages != null && ViewBag.ErrorMessages.Count > 0)
         {
