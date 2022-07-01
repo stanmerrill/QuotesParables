@@ -1,6 +1,5 @@
 ﻿@using QuotesParables.Models;
 @using QuotesParables.ViewModels;
-@using System.Text;
 
 @model QuoteListViewModel
 
@@ -12,83 +11,59 @@
     ViewBag.Title = "Index";
     ViewBag.OpenToPublic = true;
     //var mapPath = System.Web.Hosting.HostingEnvironment.MapPath("~/");
-    //---------------------------------------------------------
-    //------------Set Security Level
-    //---------------------------------------------------------
-    int securityLevelInt = 1;
-    if (HttpContext.Current.Session["CurrentUser"] != null)
-    {
-        var user = (LogonAccount)HttpContext.Current.Session["CurrentUser"];
-        ViewBag.User = user;
-        ViewBag.SecurityLevel = user.SecurityLevel;
-        securityLevelInt = int.Parse(ViewBag.SecurityLevel);
-    }
-
     using (Html.BeginForm("Index"))
     {
         @Html.AntiForgeryToken()
-        <div class="SearchContainerHeader" id="topOfPage">
+        <div class="SearchContainerHeader">
         </div>
-        <div class="row">
-            <div class="text-black col-md-4">
-                <div class="searchHeaderDiv">Search:&nbsp;</div>
-                <div class="SearchContainerHeader">
-                    <div class="searchInputDiv">
-                        <input type="Text" name="SearchText" id="SearchText" class="textInput" value="@Model.searchText">
-                    </div>
-                </div>
-            </div>
-            <div class="text-primary col-md-4">
-                <div class="searchHeaderDiv">Cateogry:</div>
-                <div class="SearchContainerHeader">
-                    <select class="textInput" id="searchCategoryId" name="searchCategoryId">
-                        <option selected="selected" value="0">All</option>
-                        @foreach (var item in catList)
-                        {
-                            if (Model.searchCategoryId == item.CategoryId)
-                            {
-                                <option value="@item.CategoryId" selected="selected">@item.Description</option>
-                            }
-                            else
-                            {
-                                <option value="@item.CategoryId">@item.Description</option>
-                            }
-                        }
-                    </select>
-                </div>
-            </div>
-            <div class="text-black col-md-4">
-                <div class="searchHeaderDiv">Type:</div>
-                <div class="SearchContainerHeader">
-                    <select class="textInput" id="searchQuoteTypeId" name="searchQuoteTypeId">
-                        <option selected="selected" value="0">All</option>
-                        @foreach (var item in typeList)
-                        {
-                            if (Model.searchQuoteTypeId == item.QuoteTypeId)
-                            {
-                                <option value="@item.QuoteTypeId" selected="selected">@item.QuoteTypeDescription</option>
-                            }
-                            else
-                            {
-                                <option value="@item.QuoteTypeId">@item.QuoteTypeDescription</option>
-                            }
-                        }
-                    </select>
-                </div>
+        //---------------------------------------------------------
+        //------------Search by text
+        //---------------------------------------------------------
+        <div class="SearchContainerHeader">
+            <div class="searchHeaderDiv">Search:&nbsp;</div>
+            <div class="searchInputDiv">
+                <input type="Text" name="SearchText" id="SearchText" class="textInput" value="@Model.searchText">
             </div>
         </div>
-        <div class="row">
-            <div class="text-center  pb-2">
-                <input type="submit" value="Search" id="SUBMITSEARCH" name="SUBMITSEARCH" class="btn-primary" />
-                <input type="submit" value="Reset" id="resetSearchButton" class="btn-primary" />
-            </div>
-            @{ if (securityLevelInt > 1)
+        //---------------------------------------------------------
+        //------------Search by Category
+        //---------------------------------------------------------
+        <div class="SearchContainerHeader">
+            <div class="searchHeaderDiv">Cateogry:</div>
+            <select class="textInput" id="searchCategoryId" name="searchCategoryId">
+                <option selected="selected" value="0">All</option>
+                @foreach (var item in catList)
                 {
-                    <div class="text-center pb-2">
-                        <a href="/Quotes/Create" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Create</a>
-                    </div>
+                    if (Model.searchCategoryId == item.CategoryId)
+                    {
+                        <option value="@item.CategoryId" selected="selected">@item.Description</option>
+                    }
+                    else
+                    {
+                        <option value="@item.CategoryId">@item.Description</option>
+                    }
                 }
-            }
+            </select>
+        </div>
+        //---------------------------------------------------------
+        //------------Search by Type
+        //---------------------------------------------------------
+        <div class="SearchContainerHeader">
+            <div class="searchHeaderDiv">Type:</div>
+            <select class="textInput" id="searchQuoteTypeId" name="searchQuoteTypeId">
+                <option selected="selected" value="0">All</option>
+                @foreach (var item in typeList)
+                {
+                    if (Model.searchQuoteTypeId == item.QuoteTypeId)
+                    {
+                        <option value="@item.QuoteTypeId" selected="selected">@item.QuoteTypeDescription</option>
+                    }
+                    else
+                    {
+                        <option value="@item.QuoteTypeId">@item.QuoteTypeDescription</option>
+                    }
+                }
+            </select>
         </div>
         string startRecord = (Model.pagingParameters.newStart + 1).ToString();
         int lastRecordInt;
@@ -102,267 +77,160 @@
         }
         string lastRecord = lastRecordInt.ToString();
         string totalRecords = Model.pagingParameters.totalItemCount.ToString();
+        <div class="SearchContainerHeader">
+            <div class="submitButtonDiv">
+                <input type="submit" value="Search" id="SUBMITSEARCH" name="SUBMITSEARCH" class="submitButton" />&nbsp; &nbsp;
+                <input type="submit" value="Reset" id="resetSearchButton" class="submitButton" />
+                &nbsp;&nbsp;@startRecord - @lastRecord of @totalRecords
+            </div>
+        </div>
         string nextDisabled = "Disabled=\"disabled\" ";
         string previoustDisabled = "Disabled=\"disabled\" ";
         string topDisabled = "Disabled=\"disabled\"";
         string bottomDisabled = "Disabled=\"disabled\"";
-        string topClass = "btn-secondary";
-        string bottomClass = "btn-secondary";
-        string nextClass = "btn-secondary";
-        string prevClass = "btn-secondary";
 
         if (Model.pagingParameters.nextIsActives)
         {
             nextDisabled = "";
-            nextClass = "btn-success";
         }
         if (Model.pagingParameters.topIsActives)
         {
             topDisabled = "";
-            topClass = "btn-success";
         }
         if (Model.pagingParameters.previousIsActives)
         {
             previoustDisabled = "";
-            prevClass = "btn-success";
         }
         if (Model.pagingParameters.bottomIsActives)
         {
             bottomDisabled = "";
-            bottomClass = "btn-success";
         }
         if (Model.pagingParameters.itemsPerPage <= Model.pagingParameters.totalItemCount)
         {
-            <div class="row">
-                <div class="col-md-6">
-
-                </div>
-                <div class="col-md-6">
-                    <div class="text-center">
-                        &nbsp;&nbsp;@startRecord - @lastRecord of @totalRecords &nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="submit" value="TOP" name="TOP" id="TOP" class="@topClass" @topDisabled />&nbsp;&nbsp;
-                        <input type="submit" value="NEXT" name="NEXT" id="NEXT" class="@nextClass" @nextDisabled />&nbsp;&nbsp;
-                        <input type="submit" value="PREV" name="PREVIOUS" id="PREVIOUS" @previoustDisabled class="@prevClass" />&nbsp;&nbsp;
-                        <input type="submit" value="BOT" name="BOTTOM" id="BOTTOM" @bottomDisabled class="@bottomClass" /><br />&nbsp;&nbsp;
-                    </div>
+            <div class="SearchContainerHeader">
+                <div class="submitButtonDiv">
+                    <input type="submit" value="TOP" name="TOP" id="TOP" class="submitButton" @topDisabled />&nbsp;&nbsp;
+                    <input type="submit" value="NEXT" name="NEXT" id="NEXT" class="submitButton" @nextDisabled />&nbsp;&nbsp;
+                    <input type="submit" value="PREV" name="PREVIOUS" id="PREVIOUS" @previoustDisabled class="submitButton" />&nbsp;&nbsp;
+                    <input type="submit" value="BOT" name="BOTTOM" id="BOTTOM" @bottomDisabled class="submitButton" /><br />&nbsp;&nbsp;
                 </div>
             </div>
         }
-        else
+        https://localhost:44310///---------------------------------------------------------
+              //------------Set Security Level
+              //---------------------------------------------------------
+        int securityLevelInt = 1;
+        if (HttpContext.Current.Session["CurrentUser"] != null)
         {
-            <div class="SearchContainerHeader text-center">
-                <div class="submitButtonDiv">
-                    &nbsp;&nbsp;@startRecord - @lastRecord of @totalRecords
-                </div>
-            </div>
-
-                }
-                StringBuilder sb = new StringBuilder();
-                int counter = 0;
-                string test = "";
-                foreach (var item in Model.quotesList)
-                {
-                    if (counter == 0)
-                    {
-                        sb.Append("        <div class=\"row\">");
-                    }
-                    sb.Append("            <div class=\"col-lg-6 col-md-6 col-sm-12 shadow-lg rounded bg-light border border-primary \" >"); sb.Append(Environment.NewLine);
-                    if (securityLevelInt > 1)
-                    {
-                        sb.Append("                <div class=\"text-end p-3\">"); sb.Append(Environment.NewLine);
-                        //edit
-                        sb.Append("                    <a href=\"/Quotes/Edit/");
-                        sb.Append(item.QuoteId);
-                        sb.Append("\" class=\"btn btn-primary\" target=\"_blank\""); sb.Append(Environment.NewLine);
-                        sb.Append("                       rel=\"noopener noreferrer\">Edit</a>"); sb.Append(Environment.NewLine);
-                        //delete
-                        sb.Append("                    <a href=\"/Quotes/Delete/");
-                        sb.Append(item.QuoteId);
-                        sb.Append("\" class=\"btn btn-primary\" target=\"_blank\""); sb.Append(Environment.NewLine);
-                        sb.Append("                       rel=\"noopener noreferrer\">Delete</a>"); sb.Append(Environment.NewLine);
-                        sb.Append("                </div>"); sb.Append(Environment.NewLine);
-                    }
-                    //Author
-                    sb.Append("                <div>"); sb.Append(Environment.NewLine);
-                    sb.Append("                    <label>Author:&nbsp;</label><label class=\"text-primary\">");
-                    sb.Append(item.AuthorName);
-                    sb.Append("                    </label>"); sb.Append(Environment.NewLine);
-                    sb.Append("                </div>"); sb.Append(Environment.NewLine);
-                    // Category
-                    sb.Append("                <div>"); sb.Append(Environment.NewLine);
-                    sb.Append("                    <label>Category:&nbsp;</label><label class=\"text-primary\">");
-                    string categoryDisplay = Model.getCategoryText(item.CategoryId, item.CategoryId2, item.CategoryId3);
-                    sb.Append(categoryDisplay);
-                    sb.Append("                    </label>"); sb.Append(Environment.NewLine);
-                    sb.Append("                </div>"); sb.Append(Environment.NewLine);
-                    // Type
-                    sb.Append("                <div>"); sb.Append(Environment.NewLine);
-                    sb.Append("                    <label>Type:&nbsp;</label><label class=\"text-primary\">");
-                    sb.Append(item.QuoteType.QuoteTypeDescription);
-                    sb.Append("                    </label>"); sb.Append(Environment.NewLine);
-                    sb.Append("                </div>"); sb.Append(Environment.NewLine);
-                    // Quote Text
-                    sb.Append("                <div class=\" d-md-flex pb-4 \">"); sb.Append(Environment.NewLine);
-                    sb.Append("                    <div class=\"overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light  \" style=\"height:120px\" >"); sb.Append(Environment.NewLine);
-                    string currentLine = item.QuoteText.Replace(Environment.NewLine, "~").TrimEnd();
-                    string outputLine = "";
-                    string[] lines = currentLine.Split('~');
-                    foreach (string line in lines)
-                    {
-                        if (line.Trim() != "")
-                        {
-                            outputLine = "<p class=\"textBodyDiv h6\">" + line + "</p>";
-                            sb.Append(outputLine);
-                        }
-                    }
-                    sb.Append(Environment.NewLine);
-                    sb.Append("                    </div>"); sb.Append(Environment.NewLine);
-                    sb.Append("                </div>"); sb.Append(Environment.NewLine);
-                    //like
-                    sb.Append("                <div>"); sb.Append(Environment.NewLine);
-                    sb.Append("                    <a href=\"/Quotes/Like/");
-                    sb.Append(item.QuoteId);
-                    sb.Append("\" class=\"btn btn-primary\" target=\"_blank\""); sb.Append(Environment.NewLine);
-                    sb.Append("                       rel=\"noopener noreferrer\">like</a>"); sb.Append(Environment.NewLine);
-
-
-                    //sb.Append("                    <button type=\"button\" class=\"btn btn-dark\">Like</button>"); sb.Append(Environment.NewLine);
-
-
-                    sb.Append("                    <label>&nbsp;&nbsp; No of Likes: ");
-                    sb.Append(item.Likes);
-                    sb.Append("&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"#topOfPage\">Top of Page</a>");
-
-                    sb.Append("                    </label>"); sb.Append(Environment.NewLine);
-                    sb.Append("                </div>"); sb.Append(Environment.NewLine);
-                    sb.Append("            <div>"); sb.Append(Environment.NewLine);
-                    sb.Append("&nbsp;"); sb.Append(Environment.NewLine);
-                    sb.Append("            </div>"); sb.Append(Environment.NewLine);
-                    sb.Append("            </div>"); sb.Append(Environment.NewLine);
-
-                    if (counter == 3)
-                    {
-                        sb.Append("            </div>");
-                        counter = 0;
-                    }
-                    else
-                    {
-                        counter++;
-                    }
-                    test = sb.ToString();
-                }
-        @Html.Raw(test);
-
-        @*foreach (var item in Model.quotesList)
+            var user = (LogonAccount)HttpContext.Current.Session["CurrentUser"];
+            ViewBag.User = user;
+            ViewBag.SecurityLevel = user.SecurityLevel;
+            securityLevelInt = int.Parse(ViewBag.SecurityLevel);
+        }
+        foreach (var item in Model.quotesList)
+        {
+            string headerOutput = "<div class=\"containerHeader\">";
+            if (securityLevelInt > 1)
             {
-                string headerOutput = "";
-                headerOutput += sb.ToString();
-                headerOutput += "<div class=\"containerHeader\">";
-
-                if (securityLevelInt > 1)
-                {
-                    //---------------------------------------------------------
-                    //------------Edit
-                    //---------------------------------------------------------
-                    headerOutput += "<div class= \"fieldValueDiv\"> ";
-                    headerOutput += "<a  class=\"editAnchor\" href=\"/Quotes/Edit/";
-                    headerOutput += item.QuoteId;
-                    headerOutput += "\" >Edit</a>";
-                    headerOutput += "</div>";
-                    //---------------------------------------------------------
-                    //------------Delete
-                    //---------------------------------------------------------
-                    headerOutput += "<div class=\"fieldValueDiv\">";
-                    headerOutput += "<a  class=\"editAnchor\" href=\"/Quotes/Delete/";
-                    headerOutput += item.QuoteId;
-                    headerOutput += "\" >Delete</a>";
-                    headerOutput += "</div>";
-                    //---------------------------------------------------------
-                    //------------Create
-                    //---------------------------------------------------------
-                    //@Html.ActionLink("Create New", "Create")
-                    headerOutput += "<div class=\"fieldValueDiv\">";
-                    headerOutput += "<a  class=\"editAnchor\" href=\"/Quotes/Create/";
-                    headerOutput += "\" >Create</a>";
-                    headerOutput += "</div>";
-                }
                 //---------------------------------------------------------
-                //------------LIkes
+                //------------Edit
+                //---------------------------------------------------------
+                headerOutput += "<div class= \"fieldValueDiv\"> ";
+                headerOutput += "<a  class=\"editAnchor\" href=\"/Quotes/Edit/";
+                headerOutput += item.QuoteId;
+                headerOutput += "\" >Edit</a>";
+                headerOutput += "</div>";
+                //---------------------------------------------------------
+                //------------Delete
+                //---------------------------------------------------------
+                headerOutput += "<div class=\"fieldValueDiv\">";
+                headerOutput += "<a  class=\"editAnchor\" href=\"/Quotes/Delete/";
+                headerOutput += item.QuoteId;
+                headerOutput += "\" >Delete</a>";
+                headerOutput += "</div>";
+                //---------------------------------------------------------
+                //------------Create
                 //---------------------------------------------------------
                 //@Html.ActionLink("Create New", "Create")
                 headerOutput += "<div class=\"fieldValueDiv\">";
-                headerOutput += "<a  class=\"editAnchor\" href=\"/Quotes/Like/";
-                headerOutput += item.QuoteId;
-                headerOutput += "\" >Like This</a>";
+                headerOutput += "<a  class=\"editAnchor\" href=\"/Quotes/Create/";
+                headerOutput += "\" >Create</a>";
                 headerOutput += "</div>";
-                //---------------------------------------------------------
-                //------------Author
-                //---------------------------------------------------------
-                headerOutput += "<div class=\"fieldValueDiv\">";
-                if (item.AuthorName == null || item.AuthorName.Trim().Length == 0)
-                {
-                    headerOutput += "Author Unknown";
-                }
-                else
-                {
-                    headerOutput += item.AuthorName;
-                }
-                headerOutput += "</div>";
-                //---------------------------------------------------------
-                //------------Type
-                //---------------------------------------------------------
-                headerOutput += "<div class=\"fieldValueDiv\">";
-                headerOutput += item.QuoteType.QuoteTypeDescription;
-                headerOutput += "</div>";
-                //---------------------------------------------------------
-                //------------Lkes
-                //---------------------------------------------------------
-                headerOutput += "<div class=\"fieldValueDiv\">";
-                headerOutput += "No of Likes: " + item.Likes;
-                headerOutput += "</div>";
-                string categoryDisplay = Model.getCategoryText(item.CategoryId, item.CategoryId2, item.CategoryId3);
-                if (categoryDisplay.Trim() != "")
-                {
-                    headerOutput += "</div>";
-                    headerOutput += "<div class=\"containerHeader\">";
-                    //---------------------------------------------------------
-                    //------------Category
-                    //---------------------------------------------------------
-                    headerOutput += "<div class=\"fieldValueDiv\">";
-                    headerOutput += categoryDisplay;
-                    headerOutput += "</div>";
-                }
-                headerOutput += "</div>";
-                @Html.Raw(headerOutput);
-                //---------------------------------------------------------
-                //------------Bottom blue line
-                //---------------------------------------------------------
-                string outputLine = "";
-                @Html.Raw("<div class=\"containerBody\">");
-                string currentLine = item.QuoteText.Replace(Environment.NewLine, "~").TrimEnd();
-                string[] lines = currentLine.Split('~');
-                foreach (string line in lines)
-                {
-                    if (line.Trim() != "")
-                    {
-                        outputLine = "<p class=\"textBodyDiv text-md\">" + line + "</p>";
-                        @Html.Raw(outputLine);
-                    }
-                }
-                @Html.Raw("</div>");
             }
-            @Html.Raw("<div class=\"endDiv\"></div>");*@
+            //---------------------------------------------------------
+            //------------LIkes
+            //---------------------------------------------------------
+            //@Html.ActionLink("Create New", "Create")
+            headerOutput += "<div class=\"fieldValueDiv\">";
+            headerOutput += "<a  class=\"editAnchor\" href=\"/Quotes/Like/";
+            headerOutput += item.QuoteId;
+            headerOutput += "\" >Like This</a>";
+            headerOutput += "</div>";
+            //---------------------------------------------------------
+            //------------Author
+            //---------------------------------------------------------
+            headerOutput += "<div class=\"fieldValueDiv\">";
+            if (item.AuthorName == null || item.AuthorName.Trim().Length == 0)
+            {
+                headerOutput += "Author Unknown";
+            }
+            else
+            {
+                headerOutput += item.AuthorName;
+            }
+            headerOutput += "</div>";
+            //---------------------------------------------------------
+            //------------Type
+            //---------------------------------------------------------
+            headerOutput += "<div class=\"fieldValueDiv\">";
+            headerOutput += item.QuoteType.QuoteTypeDescription;
+            headerOutput += "</div>";
+            //---------------------------------------------------------
+            //------------Lkes
+            //---------------------------------------------------------
+            headerOutput += "<div class=\"fieldValueDiv\">";
+            headerOutput += "No of Likes: " + item.Likes;
+            headerOutput += "</div>";
+            string categoryDisplay = Model.getCategoryText(item.CategoryId, item.CategoryId2, item.CategoryId3);
+            if (categoryDisplay.Trim() != "")
+            {
+                headerOutput += "</div>";
+                headerOutput += "<div class=\"containerHeader\">";
+                //---------------------------------------------------------
+                //------------Category
+                //---------------------------------------------------------
+                headerOutput += "<div class=\"fieldValueDiv\">";
+                headerOutput += categoryDisplay;
+                headerOutput += "</div>";
+            }
+            headerOutput += "</div>";
+            @Html.Raw(headerOutput);
+            //---------------------------------------------------------
+            //------------Bottom blue line
+            //---------------------------------------------------------
+            string outputLine = "";
+            @Html.Raw("<div class=\"containerBody\">");
+            string currentLine = item.QuoteText.Replace(Environment.NewLine, "~").TrimEnd();
+            string[] lines = currentLine.Split('~');
+            foreach (string line in lines)
+            {
+                if (line.Trim() != "")
+                {
+                    outputLine = "<p class=\"textBodyDiv\">" + line + "</p>";
+                    @Html.Raw(outputLine);
+                }
+            }
+            @Html.Raw("</div>");
+        }
+        @Html.Raw("<div class=\"endDiv\"></div>");
         if (Model.pagingParameters.itemsPerPage <= Model.pagingParameters.totalItemCount)
         {
-            <div class="col-lg-6">
-                <div class="text-start pt-2" >
-                    <input type="submit" value="TOP" name="TOP" id="TOP" class="@topClass" @topDisabled />&nbsp;&nbsp;
-                    <input type="submit" value="NEXT" name="NEXT" id="NEXT" class="@nextClass" @nextDisabled />&nbsp;&nbsp;
-                    <input type="submit" value="PREV" name="PREVIOUS" id="PREVIOUS" @previoustDisabled class="@prevClass" />&nbsp;&nbsp;
-                    <input type="submit" value="BOT" name="BOTTOM" id="BOTTOM" @bottomDisabled class="@bottomClass" /><br />&nbsp;&nbsp;
-                </div>
-                <div class="col-lg-6">
-
+            <div class="SearchContainerHeader">
+                <div class="submitButtonDiv">
+                    <input type="submit" value="TOP" name="TOP" id="TOP" class="submitButton" @topDisabled />&nbsp;&nbsp;
+                    <input type="submit" value="NEXT" name="NEXT" id="NEXT" class="submitButton" @nextDisabled />&nbsp;&nbsp;
+                    <input type="submit" value="PREV" name="PREVIOUS" id="PREVIOUS" @previoustDisabled class="submitButton" />&nbsp;&nbsp;
+                    <input type="submit" value="BOT" name="BOTTOM" id="BOTTOM" @bottomDisabled class="submitButton" /><br />&nbsp;&nbsp;
                 </div>
             </div>
         }

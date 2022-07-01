@@ -509,7 +509,6 @@ C:\Development\Projects\GitQuotes\QuotesParables\bin\System.Web.WebPages.Razor.x
 C:\Development\Projects\GitQuotes\QuotesParables\bin\Newtonsoft.Json.xml
 C:\Development\Projects\GitQuotes\QuotesParables\bin\Antlr3.Runtime.pdb
 C:\Development\Projects\GitQuotes\QuotesParables\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Development\Projects\GitQuotes\QuotesParables\obj\Debug\QuotesParables.csprojAssemblyReference.cache
 C:\Development\Projects\GitQuotes\QuotesParables\obj\Debug\QuotesParables.Migrations.intialNew.resources
 C:\Development\Projects\GitQuotes\QuotesParables\obj\Debug\QuotesParables.Migrations.extratextfields.resources
 C:\Development\Projects\GitQuotes\QuotesParables\obj\Debug\QuotesParables.Migrations.dropExtraTextfields.resources
@@ -610,3 +609,4 @@ C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\D
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.csproj.CopyComplete
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.dll
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.pdb
+C:\Development\Projects\GitQuotes\QuotesParables\obj\Debug\QuotesParables.csproj.AssemblyReference.cache

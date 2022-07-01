@@ -17,7 +17,7 @@ namespace QuotesParables.Models
         // MODIFY UTILITY GLOBALS ALSO!!!!!   
         //-----------------------------------------
         public QuotesContext()
-                    : base("name=QuotesContext")
+                    : base("name=QuotesNewContext")
         {
         }
         public DbSet<Quote> Quotes { get; set; }
