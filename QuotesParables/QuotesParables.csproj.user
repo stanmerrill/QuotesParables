@@ -19,7 +19,7 @@
     <WebStackScaffolding_DbContextTypeFullName>QuotesParables.Models.QuotesContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
-    <NameOfLastUsedPublishProfile>C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\Properties\PublishProfiles\MyDharmaQuotes.com.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\Properties\PublishProfiles\quotes.dotgrou.info.pubxml</NameOfLastUsedPublishProfile>
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
   </PropertyGroup>
   <ProjectExtensions>

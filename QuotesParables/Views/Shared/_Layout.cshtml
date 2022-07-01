@@ -44,16 +44,13 @@
                         @Html.ActionLink("Quotes", "Index", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
                     </li>
                     @{
-                        if (securityLevelInt > 1)
-                        {
-                            <li class="nav-item">
-                                @Html.ActionLink("Update Quotes", "UpdateList", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
-                            </li>
-                        }
                         if (securityLevelInt > 3)
                         {
                             <a class="nav-link navbar-brand dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false">Maintenance</a>
                             <ul class="dropdown-menu p-2" aria-labelledby="dropdown04">
+                                <li class="nav-item">
+                                    @Html.ActionLink("Update Quotes", "UpdateList", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
+                                </li>
                                 <li class="nav-item">
                                     @Html.ActionLink("Categories", "Index", "Categories", new { area = "" }, new { @class = "navbar-primary" })
                                 </li>
