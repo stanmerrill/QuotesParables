@@ -37,6 +37,7 @@ namespace QuotesParables.Models
 
         [Required]
         [ForeignKey("QuoteType")]
+        [Display(Name = "Quote Type")]
         public int QuoteTypeId { get; set; }
         public virtual QuoteType QuoteType { get; set; }
         
