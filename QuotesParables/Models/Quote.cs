@@ -59,7 +59,6 @@ namespace QuotesParables.Models
         //[Required]
         [DisplayFormat(DataFormatString = "{0:M/d/yy}")]
         [Display(Name = "Update Date")]
-
         public DateTime UpdateDate { get; set; }
 
         public string getUpdateUser()
