@@ -24,12 +24,12 @@
 
         @*-------------Text *@
         <div>
-            @Html.LabelFor(model => model.QuoteText, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.QuoteText, htmlAttributes: new { @class = "text-primary align-top col-md-2" })<br />
             <textarea cols="100" rows="15" id="QuoteText" name="QuoteText" style='color: blue; background-color: white; font-size: 18px;'>@Model.QuoteText</textarea>
         </div>
         @*-------------Author *@
         <div class="form-group">
-            @Html.LabelFor(model => model.AuthorName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AuthorName, htmlAttributes: new { @class = "text-primary col-md-2" })
             <div class="col-md-10">
                 <Input type="text" id="AuthorName" size="100" name="AuthorName" style='color: blue; font-size: 18px;' value="" />
                 @Html.ValidationMessageFor(model => model.AuthorName, "", new { @class = "text-danger" })
@@ -37,7 +37,7 @@
         </div>
         @*-------------Category 1 *@
         <div class="form-group">
-            <label class="control-label col-md-2" for="CategoryId">Category 1</label>
+            <label class="text-primary col-md-2" for="CategoryId">Category 1</label>
             <div class="col-md-10">
                 <select class="form-control" data-val="true" data-val-number="The field Category 1 must be a number."
                         data-val-required="The Category 1 field is required." id="CategoryId" name="CategoryId">
@@ -55,14 +55,14 @@
             </div>
             @*
                     <div class="form-group">
-                        @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
+                        @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "text-primary col-md-2" })
                         <div class="col-md-10">
                             @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-                @Html.LabelFor(model => model.CategoryId, new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.CategoryId, new { @class = "text-primary col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownListFor(m => m.CategoryId,
                         new SelectList(
@@ -74,7 +74,7 @@
         </div>
         @*-------------Category 2 *@
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoryId2, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CategoryId2, new { @class = "text-primary col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(m => m.CategoryId2,
                     new SelectList(
@@ -85,7 +85,7 @@
         </div>
         @*-------------Category 3 *@
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoryId3, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CategoryId3, new { @class = "text-primary col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(m => m.CategoryId3,
                     new SelectList(
@@ -95,7 +95,7 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.QuoteTypeId, "QuoteTypeId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.QuoteTypeId, "QuoteTypeId", htmlAttributes: new { @class = "text-primary col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("QuoteTypeId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.QuoteTypeId, "", new { @class = "text-danger" })
