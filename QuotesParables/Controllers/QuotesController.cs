@@ -19,10 +19,23 @@ namespace QuotesParables.Controllers
         // GET: Quotes
         public ActionResult Index()
         {
-            myGlobals.CurrentContext = "QuotesContext";
-            ReturnObject ro = new ReturnObject();
-            var myViewModel = new QuoteListViewModel();
+            myGlobals.CurrentContext = "QuotesNewContext";
+            QuoteListViewModel myViewModel = GetViewModelForList("Y");
+            return View(myViewModel);
+        }
+
+        public ActionResult UnApproved()
+        {
+            myGlobals.CurrentContext = "QuotesNewContext";
+            QuoteListViewModel myViewModel = GetViewModelForList("N");
+            return View("Index",myViewModel);
+        }
+
+        private QuoteListViewModel GetViewModelForList(string approved)
+        {
             string searchText;
+            ReturnObject ro = new ReturnObject();
+            QuoteListViewModel myViewModel = new QuoteListViewModel();
             myViewModel.searchCategoryId = getsearchCategoryId();
             myViewModel.searchQuoteTypeId = getSearchDataTypeId();
             myViewModel.searchText = getSessionSearchText();
@@ -53,6 +66,14 @@ namespace QuotesParables.Controllers
             {
                 mySet = mySet.Where(x => x.QuoteTypeId == myViewModel.searchQuoteTypeId);
             }
+            if (approved == "Y")
+            {
+                mySet = mySet.Where(x => x.Aprroved == "Y");
+            }
+            else
+            {
+                mySet = mySet.Where(x => x.Aprroved == "N");
+            }
             mySet = mySet.Include(q => q.Category).Include(x => x.QuoteType).OrderByDescending(x => x.Likes);
             PagingParameters pagingParameters = getpagingParameters();
             pagingParameters.totalItemCount = mySet.Count();
@@ -64,12 +85,11 @@ namespace QuotesParables.Controllers
             else
             {
                 ViewBag.ErroMessages = ro.ErrorMessages;
-                return View(myViewModel);
             }
             myViewModel.quotesList = mySet.Skip(pagingParameters.newStart).Take(pagingParameters.newCount).ToList();
             SetSession.SetPagingParameters(pagingParameters);
             myViewModel.pagingParameters = pagingParameters;
-            return View(myViewModel);
+            return myViewModel;
         }
 
         [HttpPost]
@@ -260,6 +280,7 @@ namespace QuotesParables.Controllers
             editQuoteViewModel.CreateDate = quote.CreateDate;
             editQuoteViewModel.UpdateDate = quote.UpdateDate;
             editQuoteViewModel.Likes = quote.Likes;
+            editQuoteViewModel.Aprroved= quote.Aprroved;
             editQuoteViewModel.CreatedByLogonAccountId = quote.CreatedByLogonAccountId;
             editQuoteViewModel.UpdatedByLogonAccountId = quote.UpdatedByLogonAccountId;
             editQuoteViewModel.CategoryDictionary = CategoryUtility.getCategoryDictionaryIntString();
@@ -278,7 +299,7 @@ namespace QuotesParables.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuoteId,QuoteText,AuthorName,Likes,QuoteTypeId,CategoryId,CategoryId2,CategoryId3,CreatedByLogonAccountId,UpdatedByLogonAccountId,RatingTypeId,CreateDate,UpdateDate,repeatUpdate")] EditQuoteViewModel editQuoteViewModel)
+        public ActionResult Edit([Bind(Include = "QuoteId,QuoteText,AuthorName,Likes,QuoteTypeId,CategoryId,CategoryId2,CategoryId3,CreatedByLogonAccountId,UpdatedByLogonAccountId,RatingTypeId,CreateDate,UpdateDate,repeatUpdate,Approved")] EditQuoteViewModel editQuoteViewModel)
         {
             if (ModelState.IsValid)
             {

@@ -44,6 +44,11 @@ namespace QuotesParables.Models
         [Display(Name = "Likes")]
         public int Likes { get; set; }
 
+        [MaxLength(1)]
+        [StringLength(1)]
+        [Display(Name = "Approved")]
+        public string Aprroved { get; set; }
+
         [Required]
         [Display(Name = "Created by")]
         public int CreatedByLogonAccountId { get; set; }
