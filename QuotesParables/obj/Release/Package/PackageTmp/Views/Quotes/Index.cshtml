@@ -218,6 +218,18 @@
                     sb.Append(Environment.NewLine);
                     sb.Append("                    </div>"); sb.Append(Environment.NewLine);
                     sb.Append("                </div>"); sb.Append(Environment.NewLine);
+                    //contributor
+                    if (item.Contributor.Trim() != "")
+                    {
+                        sb.Append("                <div>"); sb.Append(Environment.NewLine);
+                        sb.Append("                    <label>Contributor:&nbsp;</label><label class=\"text-primary\">");
+                        sb.Append(item.Contributor);
+                        sb.Append("                    </label>"); sb.Append(Environment.NewLine);
+                        sb.Append("                </div>"); sb.Append(Environment.NewLine);
+                    }
+
+
+
                     //like
                     sb.Append("                <div>"); sb.Append(Environment.NewLine);
                     sb.Append("                    <a href=\"/Quotes/Like/");

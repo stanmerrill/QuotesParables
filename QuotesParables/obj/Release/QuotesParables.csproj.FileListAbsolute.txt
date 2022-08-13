@@ -436,3 +436,5 @@ C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\R
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Release\QuotesParables.csproj.CopyComplete
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Release\QuotesParables.dll
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Release\QuotesParables.pdb
+C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Release\QuotesParables.Migrations.newFieldAdded.resources
+C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Release\QuotesParables.Migrations.InitialCreate.resources

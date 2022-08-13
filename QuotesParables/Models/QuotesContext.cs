@@ -12,12 +12,12 @@ namespace QuotesParables.Models
     {
         //            : base("name=QuotesNewContex")
         //            : base("name=QuotesContext")
-        //            : base("name=QuoteTestContext")
         //-----------------------------------------
         // MODIFY UTILITY GLOBALS ALSO!!!!!   
         //-----------------------------------------
         public QuotesContext()
-                    : base("name=QuotesNewContext")
+        // MODIFY UTILITY GLOBALS ALSO!!!!!   
+                    : base("name=QuotesContext")
         {
         }
         public DbSet<Quote> Quotes { get; set; }

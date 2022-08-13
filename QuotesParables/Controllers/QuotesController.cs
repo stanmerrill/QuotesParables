@@ -19,14 +19,14 @@ namespace QuotesParables.Controllers
         // GET: Quotes
         public ActionResult Index()
         {
-            myGlobals.CurrentContext = "QuotesNewContext";
+            myGlobals.CurrentContext = "QuotesContext";
             QuoteListViewModel myViewModel = GetViewModelForList("Y");
             return View(myViewModel);
         }
 
         public ActionResult UnApproved()
         {
-            myGlobals.CurrentContext = "QuotesNewContext";
+            myGlobals.CurrentContext = "QuotesContext";
             QuoteListViewModel myViewModel = GetViewModelForList("N");
             return View("Index",myViewModel);
         }
