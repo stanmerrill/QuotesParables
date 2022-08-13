@@ -185,6 +185,10 @@
     <Compile Include="Migrations\202208122141584_newFieldAdded.designer.cs">
       <DependentUpon>202208122141584_newFieldAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208131811127_InitialCreate.cs" />
+    <Compile Include="Migrations\202208131811127_InitialCreate.designer.cs">
+      <DependentUpon>202208131811127_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Favorite.cs" />
@@ -335,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208122141584_newFieldAdded.resx">
       <DependentUpon>202208122141584_newFieldAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208131811127_InitialCreate.resx">
+      <DependentUpon>202208131811127_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

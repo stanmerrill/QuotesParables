@@ -52,7 +52,12 @@ namespace QuotesParables.ViewModels
         [StringLength(1)]
         [Display(Name = "Approved")]
         public string Aprroved { get; set; }
-        
+
+        [MaxLength(30), MinLength(1)]
+        [StringLength(30)]
+        [Display(Name = "Contributor")]
+        public string Contributor { get; set; }
+
         [Required]
         [Display(Name = "Created by")]
         public int CreatedByLogonAccountId { get; set; }

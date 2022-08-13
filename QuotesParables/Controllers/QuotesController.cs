@@ -45,7 +45,7 @@ namespace QuotesParables.Controllers
             if (myViewModel.searchText != null && myViewModel.searchText.Trim().Length > 0)
             {
                 searchText = myViewModel.searchText.Trim();
-                mySet = mySet.Where(x => x.AuthorName.Contains(searchText) || x.QuoteText.Contains(searchText));
+                mySet = mySet.Where(x => x.AuthorName.Contains(searchText) || x.QuoteText.Contains(searchText) || x.Contributor.Contains(searchText));
             }
             if (myViewModel.searchCategoryId > 0)
             {
@@ -204,6 +204,7 @@ namespace QuotesParables.Controllers
             EditQuoteViewModel newQuote = new EditQuoteViewModel();
             newQuote.AuthorName = "";
             newQuote.QuoteText = "";
+            newQuote.Contributor = "";
             newQuote.CategoryId = 33;
             newQuote.CategoryId2 = 33;
             newQuote.CategoryId3 = 33;
@@ -217,7 +218,7 @@ namespace QuotesParables.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuoteId,QuoteText,AuthorName,Likes,QuoteTypeId,CategoryId,CategoryId2,CategoryId3,CreatedByLogonAccountId,UpdatedByLogonAccountId,RatingTypeId,CreateDate,UpdateDate")] Quote quote)
+        public ActionResult Create([Bind(Include = "QuoteId,QuoteText,AuthorName,Likes,Contributor,QuoteTypeId,CategoryId,CategoryId2,CategoryId3,CreatedByLogonAccountId,UpdatedByLogonAccountId,RatingTypeId,CreateDate,UpdateDate")] Quote quote)
         {
             if (ModelState.IsValid)
             {
@@ -238,10 +239,20 @@ namespace QuotesParables.Controllers
                 }
                 else
                 {
+                    if (HttpContext.Session["CurrentUser"] != null)
+                    {
+                        quote.Aprroved = "Y";
+                        quote.CreatedByLogonAccountId = getLogonUser().LogonAccountId;
+                        quote.UpdatedByLogonAccountId = 1;
+                    }
+                    else
+                    {
+                        quote.Aprroved = "N";
+                        quote.CreatedByLogonAccountId = 1009;
+                        quote.UpdatedByLogonAccountId = 1009;
+                    }
                     quote.CreateDate = DateTime.Now;
                     quote.UpdateDate = DateTime.Now;
-                    quote.CreatedByLogonAccountId = getLogonUser().LogonAccountId;
-                    quote.UpdatedByLogonAccountId = 1;
                     quote.Likes = 0;
                     db.Quotes.Add(quote);
                     db.SaveChanges();

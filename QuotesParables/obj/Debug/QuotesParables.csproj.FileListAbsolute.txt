@@ -611,3 +611,4 @@ C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\D
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.pdb
 C:\Development\Projects\GitQuotes\QuotesParables\obj\Debug\QuotesParables.csproj.AssemblyReference.cache
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.Migrations.newFieldAdded.resources
+C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.Migrations.InitialCreate.resources
