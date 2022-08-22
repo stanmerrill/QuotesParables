@@ -84,7 +84,7 @@ namespace QuotesParables.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(category).State = EntityState.Modified;
+                db.Entry(category).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 CategoryUtility.refreshCategories(); 
                 return RedirectToAction("Index");

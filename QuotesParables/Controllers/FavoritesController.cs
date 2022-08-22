@@ -89,7 +89,7 @@ namespace QuotesParables.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(favorite).State = EntityState.Modified;
+                db.Entry(favorite).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

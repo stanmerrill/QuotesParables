@@ -37,7 +37,7 @@ namespace QuotesParables.Models
             QuotesContext quotesContext = new QuotesContext();
             try
             {
-                quotesContext.Entry(myQuote).State = EntityState.Modified;
+                quotesContext.Entry(myQuote).State = System.Data.Entity.EntityState.Modified;
                 quotesContext.SaveChanges();
             }
             catch (Exception exception)

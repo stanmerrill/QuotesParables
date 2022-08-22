@@ -83,7 +83,7 @@ namespace QuotesParables.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(logonAccount).State = EntityState.Modified;
+                db.Entry(logonAccount).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

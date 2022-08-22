@@ -55,6 +55,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -188,6 +189,14 @@
     <Compile Include="Migrations\202208131811127_InitialCreate.cs" />
     <Compile Include="Migrations\202208131811127_InitialCreate.designer.cs">
       <DependentUpon>202208131811127_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208170132288_z.cs" />
+    <Compile Include="Migrations\202208170132288_z.designer.cs">
+      <DependentUpon>202208170132288_z.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202208181543073_contributorNull.cs" />
+    <Compile Include="Migrations\202208181543073_contributorNull.designer.cs">
+      <DependentUpon>202208181543073_contributorNull.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -342,6 +351,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208131811127_InitialCreate.resx">
       <DependentUpon>202208131811127_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208170132288_z.resx">
+      <DependentUpon>202208170132288_z.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208181543073_contributorNull.resx">
+      <DependentUpon>202208181543073_contributorNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

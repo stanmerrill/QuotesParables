@@ -49,7 +49,7 @@ namespace QuotesParables.Models
         [Display(Name = "Approved")]
         public string Aprroved { get; set; }
 
-        [MaxLength(30), MinLength(1)]
+        [MaxLength(30)]
         [StringLength(30)]
         [Display(Name = "Contributor")]
         public string Contributor { get; set; }

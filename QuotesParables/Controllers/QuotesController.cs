@@ -333,7 +333,7 @@ namespace QuotesParables.Controllers
                     newQuote.UpdatedByLogonAccountId = getLogonUser().LogonAccountId;
                     newQuote.CreatedByLogonAccountId = editQuoteViewModel.CreatedByLogonAccountId;
                     newQuote.CreateDate = editQuoteViewModel.CreateDate;
-                    db.Entry(newQuote).State = EntityState.Modified;
+                    db.Entry(newQuote).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                     SetSession.SetRepeatUpdate(editQuoteViewModel.repeatUpdate);
                     if (editQuoteViewModel.repeatUpdate == "Y")
@@ -380,7 +380,7 @@ namespace QuotesParables.Controllers
                     return HttpNotFound();
                 }
                 quote.Likes++;
-                db.Entry(quote).State = EntityState.Modified;
+                db.Entry(quote).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index", "Quotes");
             }
