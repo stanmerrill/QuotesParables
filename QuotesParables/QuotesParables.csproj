@@ -198,6 +198,10 @@
     <Compile Include="Migrations\202208181543073_contributorNull.designer.cs">
       <DependentUpon>202208181543073_contributorNull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208251521186_changeFieldName.cs" />
+    <Compile Include="Migrations\202208251521186_changeFieldName.designer.cs">
+      <DependentUpon>202208251521186_changeFieldName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Favorite.cs" />
@@ -357,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202208181543073_contributorNull.resx">
       <DependentUpon>202208181543073_contributorNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202208251521186_changeFieldName.resx">
+      <DependentUpon>202208251521186_changeFieldName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

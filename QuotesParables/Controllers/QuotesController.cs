@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using System.Web.Routing;
 using QuotesParables.Models;
 using QuotesParables.Utilities;
 using QuotesParables.ViewModels;
@@ -19,8 +20,8 @@ namespace QuotesParables.Controllers
         // GET: Quotes
         public ActionResult Index()
         {
-            myGlobals.CurrentContext = "QuotesContext";
             QuoteListViewModel myViewModel = GetViewModelForList("Y");
+            myGlobals.CurrentContext = "QuotesContext";
             return View(myViewModel);
         }
 
@@ -42,7 +43,7 @@ namespace QuotesParables.Controllers
             myViewModel.CategoryDropDown = db.Categories.OrderBy(x => x.Description).ToList();
             myViewModel.TypeDropDown = db.QuoteType.OrderBy(x => x.QuoteTypeDescription).ToList();
             IQueryable<Quote> mySet = db.Quotes;
-            IQueryable<Quote> unApprovedQuotes = db.Quotes.Where(x=> x.Aprroved == "N");
+            IQueryable<Quote> unApprovedQuotes = db.Quotes.Where(x=> x.Approved == "N");
             myViewModel.unapprovedCount = unApprovedQuotes.Count(); 
             if (myViewModel.searchText != null && myViewModel.searchText.Trim().Length > 0)
             {
@@ -70,11 +71,11 @@ namespace QuotesParables.Controllers
             }
             if (approved == "Y")
             {
-                mySet = mySet.Where(x => x.Aprroved == "Y");
+                mySet = mySet.Where(x => x.Approved == "Y");
             }
             else
             {
-                mySet = mySet.Where(x => x.Aprroved == "N");
+                mySet = mySet.Where(x => x.Approved == "N");
             }
             mySet = mySet.Include(q => q.Category).Include(x => x.QuoteType).OrderByDescending(x => x.Likes);
             PagingParameters pagingParameters = getpagingParameters();
@@ -146,6 +147,11 @@ namespace QuotesParables.Controllers
                 {
                     mySet = mySet.Where(x => x.QuoteTypeId == myViewModel.searchQuoteTypeId);
                 }
+                if (HttpContext.Session["CurrentUser"] == null)
+                {
+                    mySet = mySet.Where(x => x.Approved == "Y");
+                }
+
             }
             // Set Paging parameters
             pagingParameters.totalItemCount = mySet.Count();
@@ -243,13 +249,13 @@ namespace QuotesParables.Controllers
                 {
                     if (HttpContext.Session["CurrentUser"] != null)
                     {
-                        quote.Aprroved = "Y";
+                        quote.Approved = "Y";
                         quote.CreatedByLogonAccountId = getLogonUser().LogonAccountId;
                         quote.UpdatedByLogonAccountId = 1;
                     }
                     else
                     {
-                        quote.Aprroved = "N";
+                        quote.Approved = "N";
                         quote.CreatedByLogonAccountId = 1009;
                         quote.UpdatedByLogonAccountId = 1009;
                     }
@@ -293,7 +299,7 @@ namespace QuotesParables.Controllers
             editQuoteViewModel.CreateDate = quote.CreateDate;
             editQuoteViewModel.UpdateDate = quote.UpdateDate;
             editQuoteViewModel.Likes = quote.Likes;
-            editQuoteViewModel.Approved = quote.Aprroved;
+            editQuoteViewModel.Approved = quote.Approved;
             editQuoteViewModel.Contributor = quote.Contributor;
             editQuoteViewModel.CreatedByLogonAccountId = quote.CreatedByLogonAccountId;
             editQuoteViewModel.UpdatedByLogonAccountId = quote.UpdatedByLogonAccountId;
@@ -332,7 +338,7 @@ namespace QuotesParables.Controllers
                     newQuote.CategoryId3 = editQuoteViewModel.CategoryId3;
                     newQuote.QuoteTypeId = editQuoteViewModel.QuoteTypeId;
                     newQuote.Contributor = editQuoteViewModel.Contributor;
-                    newQuote.Aprroved = editQuoteViewModel.Approved;
+                    newQuote.Approved = editQuoteViewModel.Approved;
                     newQuote.Likes = editQuoteViewModel.Likes;
                     newQuote.UpdateDate = DateTime.Now;
                     newQuote.UpdatedByLogonAccountId = getLogonUser().LogonAccountId;
