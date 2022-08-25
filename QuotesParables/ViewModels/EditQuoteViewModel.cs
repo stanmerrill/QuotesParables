@@ -51,7 +51,7 @@ namespace QuotesParables.ViewModels
         [MaxLength(1)]
         [StringLength(1)]
         [Display(Name = "Approved")]
-        public string Aprroved { get; set; }
+        public string Approved { get; set; }
 
         [MaxLength(30), MinLength(1)]
         [StringLength(30)]

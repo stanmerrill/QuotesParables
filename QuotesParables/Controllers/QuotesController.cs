@@ -220,7 +220,7 @@ namespace QuotesParables.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuoteId,QuoteText,AuthorName,Likes,Contributor,QuoteTypeId,CategoryId,CategoryId2,CategoryId3,CreatedByLogonAccountId,UpdatedByLogonAccountId,RatingTypeId,CreateDate,UpdateDate")] Quote quote)
+        public ActionResult Create([Bind(Include = "QuoteId,QuoteText,AuthorName,Likes,Contributor,Approved,QuoteTypeId,CategoryId,CategoryId2,CategoryId3,CreatedByLogonAccountId,UpdatedByLogonAccountId,RatingTypeId,CreateDate,UpdateDate")] Quote quote)
         {
             if (ModelState.IsValid)
             {
@@ -293,7 +293,8 @@ namespace QuotesParables.Controllers
             editQuoteViewModel.CreateDate = quote.CreateDate;
             editQuoteViewModel.UpdateDate = quote.UpdateDate;
             editQuoteViewModel.Likes = quote.Likes;
-            editQuoteViewModel.Aprroved= quote.Aprroved;
+            editQuoteViewModel.Approved = quote.Aprroved;
+            editQuoteViewModel.Contributor = quote.Contributor;
             editQuoteViewModel.CreatedByLogonAccountId = quote.CreatedByLogonAccountId;
             editQuoteViewModel.UpdatedByLogonAccountId = quote.UpdatedByLogonAccountId;
             editQuoteViewModel.CategoryDictionary = CategoryUtility.getCategoryDictionaryIntString();
@@ -312,7 +313,7 @@ namespace QuotesParables.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "QuoteId,QuoteText,AuthorName,Likes,QuoteTypeId,CategoryId,CategoryId2,CategoryId3,CreatedByLogonAccountId,UpdatedByLogonAccountId,RatingTypeId,CreateDate,UpdateDate,repeatUpdate,Approved")] EditQuoteViewModel editQuoteViewModel)
+        public ActionResult Edit([Bind(Include = "QuoteId,QuoteText,AuthorName,Likes,QuoteTypeId,CategoryId,CategoryId2,CategoryId3,CreatedByLogonAccountId,UpdatedByLogonAccountId,RatingTypeId,CreateDate,UpdateDate,repeatUpdate,Approved,Contributor")] EditQuoteViewModel editQuoteViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -330,6 +331,8 @@ namespace QuotesParables.Controllers
                     newQuote.CategoryId2 = editQuoteViewModel.CategoryId2;
                     newQuote.CategoryId3 = editQuoteViewModel.CategoryId3;
                     newQuote.QuoteTypeId = editQuoteViewModel.QuoteTypeId;
+                    newQuote.Contributor = editQuoteViewModel.Contributor;
+                    newQuote.Aprroved = editQuoteViewModel.Approved;
                     newQuote.Likes = editQuoteViewModel.Likes;
                     newQuote.UpdateDate = DateTime.Now;
                     newQuote.UpdatedByLogonAccountId = getLogonUser().LogonAccountId;

@@ -219,7 +219,7 @@
                     sb.Append("                    </div>"); sb.Append(Environment.NewLine);
                     sb.Append("                </div>"); sb.Append(Environment.NewLine);
                     //contributor
-                    if (item.Contributor.Trim() != "")
+                    if (item.Contributor != null && item.Contributor.Trim() != "")
                     {
                         sb.Append("                <div>"); sb.Append(Environment.NewLine);
                         sb.Append("                    <label>Contributor:&nbsp;</label><label class=\"text-primary\">");
