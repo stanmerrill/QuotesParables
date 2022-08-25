@@ -84,9 +84,10 @@
             </div>
             @{ if (securityLevelInt > 1)
                 {
-                    <div class="text-center pb-2">
-                        <a href="/Quotes/Create" class="btn btn-dark" target="_self" rel="noopener noreferrer">Create</a>
-                    </div>
+                        <div class="text-center pb-2">
+                            <a href="/Quotes/Create" class="btn btn-dark" target="_self" rel="noopener noreferrer">Create</a><br />
+                            Pending = &nbsp; &nbsp;@Model.unapprovedCount.ToString()
+                        </div>
                 }
             }
         </div>
@@ -135,7 +136,6 @@
         {
             <div class="row">
                 <div class="col-md-6">
-
                 </div>
                 <div class="col-md-6">
                     <div class="text-center">

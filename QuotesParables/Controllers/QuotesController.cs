@@ -42,6 +42,8 @@ namespace QuotesParables.Controllers
             myViewModel.CategoryDropDown = db.Categories.OrderBy(x => x.Description).ToList();
             myViewModel.TypeDropDown = db.QuoteType.OrderBy(x => x.QuoteTypeDescription).ToList();
             IQueryable<Quote> mySet = db.Quotes;
+            IQueryable<Quote> unApprovedQuotes = db.Quotes.Where(x=> x.Aprroved == "N");
+            myViewModel.unapprovedCount = unApprovedQuotes.Count(); 
             if (myViewModel.searchText != null && myViewModel.searchText.Trim().Length > 0)
             {
                 searchText = myViewModel.searchText.Trim();

@@ -14,8 +14,8 @@ namespace QuotesParables.ViewModels
         public int searchCategoryId { get; set; }
         public int searchQuoteTypeId { get; set; }
         public string searchText { get; set; }
+        public int unapprovedCount { get; set; }
         public PagingParameters pagingParameters { get; set;  }
-
         public string getCategoryText(int catId1, int catId2, int catId3)
         {
             StringBuilder sb = new StringBuilder();

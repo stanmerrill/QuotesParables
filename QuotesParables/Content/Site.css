@@ -100,7 +100,7 @@ h2red {
     color: blue;
     font-size: 12px;
     text-align: center;
-    height: 10 px; 
+    height: 10px; 
 }
 .submitButtonDiv {
     padding-left: 60px;
@@ -121,4 +121,9 @@ h2red {
     font-size: 16px;
     height: 22px;
     width: 350px;
+}
+.description {
+    color: black;
+    font-family: 'Times New Roman';
+    font-size: 25px;
 }
