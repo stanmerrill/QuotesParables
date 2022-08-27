@@ -77,7 +77,9 @@ namespace QuotesParables.ViewModels
 
         public DateTime UpdateDate { get; set; }
         public IDictionary<int, string> CategoryDictionary;
-        public ArrayList CategoryArraylist; 
+        public ArrayList CategoryArraylist;
+        public string imageLink { get; set; }
+        public string validationValue { get; set; }
         public string getUpdateUser()
         {
             try

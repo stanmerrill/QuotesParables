@@ -216,6 +216,7 @@ namespace QuotesParables.Controllers
             newQuote.CategoryId = 33;
             newQuote.CategoryId2 = 33;
             newQuote.CategoryId3 = 33;
+            newQuote.validationValue = "16";
             newQuote.CategoryDictionary = CategoryUtility.getCategoryDictionaryIntString();
             newQuote.CategoryArraylist = CategoryUtility.getCategoryArraylist();
             return View(newQuote);
