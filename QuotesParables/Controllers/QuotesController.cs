@@ -216,10 +216,39 @@ namespace QuotesParables.Controllers
             newQuote.CategoryId = 33;
             newQuote.CategoryId2 = 33;
             newQuote.CategoryId3 = 33;
-            newQuote.validationValue = "16";
+            newQuote = setCaptcha(newQuote);
             newQuote.CategoryDictionary = CategoryUtility.getCategoryDictionaryIntString();
             newQuote.CategoryArraylist = CategoryUtility.getCategoryArraylist();
             return View(newQuote);
+
+        }
+        public EditQuoteViewModel setCaptcha(EditQuoteViewModel newQuote)
+        {
+            newQuote.correctValidationValue = getRandomValue();
+            newQuote.validationImage = @"..\\Images\\" + newQuote.correctValidationValue + ".jpg";
+            if (HttpContext.Session["CurrentUser"] != null)
+            {
+                newQuote.initialValidationValue = newQuote.correctValidationValue;
+            }
+            else
+            {
+                newQuote.initialValidationValue = "";
+            }
+            return newQuote;
+        }
+
+        private string getRandomValue()
+        {
+            Dictionary<int, string> imageDictionary = new Dictionary<int, string>();
+            imageDictionary.Add(0, "16");
+            imageDictionary.Add(1, "17");
+            imageDictionary.Add(2, "22");
+            imageDictionary.Add(3, "29");
+            imageDictionary.Add(4, "34");
+            Random r = new Random();
+            int genRand = r.Next(0, 4);
+            return imageDictionary[genRand]; 
+
         }
 
         // POST: Quotes/Create
@@ -244,6 +273,7 @@ namespace QuotesParables.Controllers
                     newQuote.CategoryId3 = quote.CategoryId3;
                     newQuote.CategoryDictionary = CategoryUtility.getCategoryDictionaryIntString();
                     newQuote.CategoryArraylist = CategoryUtility.getCategoryArraylist();
+                    newQuote = setCaptcha(newQuote);
                     return View(newQuote);
                 }
                 else

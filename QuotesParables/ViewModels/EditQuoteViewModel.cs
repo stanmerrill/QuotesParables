@@ -79,7 +79,9 @@ namespace QuotesParables.ViewModels
         public IDictionary<int, string> CategoryDictionary;
         public ArrayList CategoryArraylist;
         public string imageLink { get; set; }
-        public string validationValue { get; set; }
+        public string correctValidationValue { get; set; }
+        public string initialValidationValue { get; set; }
+        public string validationImage { get; set; }
         public string getUpdateUser()
         {
             try

@@ -18,107 +18,145 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <hr />
-        @if (ViewBag.ErrorMessage != "")
-        {
-            <h2 style='color: red; background-color: white; font-size: 18px;'>@ViewBag.ErrorMessage</h2>}
+<div class="form-horizontal">
+    <hr />
+    @if (ViewBag.ErrorMessage != "")
+    {
+        <h2 style='color: red; background-color: white; font-size: 18px;'>@ViewBag.ErrorMessage</h2>}
 
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        @*-------------Text *@
-        <div>
-            @Html.LabelFor(model => model.QuoteText, htmlAttributes: new { @class = "text-primary align-top col-md-2" })<br />
-            <textarea cols="100" rows="15" id="QuoteText" name="QuoteText" style='color: blue; background-color: white; font-size: 18px;'>@Model.QuoteText</textarea>
-        </div>
-        @*-------------Author *@
-        <div class="form-group">
-            @Html.LabelFor(model => model.AuthorName, htmlAttributes: new { @class = "text-primary col-md-2" })
-            <div class="col-md-10">
-                <Input type="text" id="AuthorName" size="100" name="AuthorName" style='color: blue; font-size: 18px;' value="" />
-                @Html.ValidationMessageFor(model => model.AuthorName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        @*-------------Category 1 *@
-        <div class="form-group">
-            <label class="text-primary col-md-2" for="CategoryId">Category 1</label>
-            <div class="col-md-10">
-                <select class="form-control" data-val="true" data-val-number="The field Category 1 must be a number."
-                        data-val-required="The Category 1 field is required." id="CategoryId" name="CategoryId">
-                    @foreach (Category category in Model.CategoryArraylist)
-                    {
-                        string isSelected = "";
-                        if (category.CategoryId == Model.CategoryId)
-                        {
-                            isSelected = "selected='selected'";
-                        }
-                        <option value="@category.CategoryId" @isSelected>@category.Description</option>
-                    }
-                </select>
-            </div>
-            @*
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "text-primary col-md-2" })
-                        <div class="col-md-10">
-                            @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                @Html.LabelFor(model => model.CategoryId, new { @class = "text-primary col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownListFor(m => m.CategoryId,
-                        new SelectList(
-                            Model.CategoryDictionary,
-                            "Key",
-                            "Value", Model.CategoryId), htmlAttributes: new { @class = "form-control" })
-                </div>
-            *@
-        </div>
-        @*-------------Category 2 *@
-        <div class="form-group">
-            @Html.LabelFor(model => model.CategoryId2, new { @class = "text-primary col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.CategoryId2,
-                         new SelectList(
-                             Model.CategoryDictionary,
-                             "Key",
-                             "Value", Model.CategoryId2), htmlAttributes: new { @class = "form-control" })
-            </div>
-        </div>
-        @*-------------Category 3 *@
-        <div class="form-group">
-            @Html.LabelFor(model => model.CategoryId3, new { @class = "text-primary col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.CategoryId3,
-                         new SelectList(
-                             Model.CategoryDictionary,
-                             "Key",
-                             "Value", Model.CategoryId3), htmlAttributes: new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.QuoteTypeId, "QuoteTypeId", htmlAttributes: new { @class = "text-primary col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("QuoteTypeId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.QuoteTypeId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Contributor, "Contributor", htmlAttributes: new { @class = "text-primary col-md-2" })
-            <div class="col-md-10">
-                <Input type="text" id="Contributor" size="100" name="Contributor" style='color: blue; font-size: 18px;' value=" " />
-                @Html.ValidationMessageFor(model => model.Contributor, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+    @*-------------Text *@
+    <div>
+        @Html.LabelFor(model => model.QuoteText, htmlAttributes: new { @class = "text-primary align-top col-md-2" })<br />
+        <textarea cols="100" rows="15" id="QuoteText" name="QuoteText" style='color: blue; background-color: white; font-size: 18px;'>@Model.QuoteText</textarea>
+    </div>
+    @*-------------Author *@
+    <div class="form-group">
+        @Html.LabelFor(model => model.AuthorName, htmlAttributes: new { @class = "text-primary col-md-2" })
+        <div class="col-md-10">
+            <Input type="text" id="AuthorName" size="100" name="AuthorName" style='color: blue; font-size: 18px;' value="@Model.AuthorName" />
+            @Html.ValidationMessageFor(model => model.AuthorName, "", new { @class = "text-danger" })
         </div>
     </div>
+    @*-------------Category 1 *@
+    <div class="form-group">
+        <label class="text-primary col-md-2" for="CategoryId">Category 1</label>
+        <div class="col-md-10">
+            <select class="form-control" data-val="true" data-val-number="The field Category 1 must be a number."
+                    data-val-required="The Category 1 field is required." id="CategoryId" name="CategoryId">
+                @foreach (Category category in Model.CategoryArraylist)
+                {
+                    string isSelected = "";
+                    if (category.CategoryId == Model.CategoryId)
+                    {
+                        isSelected = "selected='selected'";
+                    }
+                    <option value="@category.CategoryId" @isSelected>@category.Description</option>
+                }
+            </select>
+        </div>
+        @*
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "text-primary col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            @Html.LabelFor(model => model.CategoryId, new { @class = "text-primary col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.CategoryId,
+                    new SelectList(
+                        Model.CategoryDictionary,
+                        "Key",
+                        "Value", Model.CategoryId), htmlAttributes: new { @class = "form-control" })
+            </div>
+        *@
+    </div>
+    @*-------------Category 2 *@
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryId2, new { @class = "text-primary col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.CategoryId2,
+                     new SelectList(
+                         Model.CategoryDictionary,
+                         "Key",
+                         "Value", Model.CategoryId2), htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+    @*-------------Category 3 *@
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryId3, new { @class = "text-primary col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.CategoryId3,
+                     new SelectList(
+                         Model.CategoryDictionary,
+                         "Key",
+                         "Value", Model.CategoryId3), htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.QuoteTypeId, "QuoteTypeId", htmlAttributes: new { @class = "text-primary col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("QuoteTypeId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.QuoteTypeId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Contributor, "Contributor", htmlAttributes: new { @class = "text-primary col-md-2" })
+        <div class="col-md-10">
+            <Input type="text" id="Contributor" size="100" name="Contributor" style='color: blue; font-size: 18px;' value=" " />
+            @Html.ValidationMessageFor(model => model.Contributor, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        Verify that you are not a Robot by providing the validation code below. 
+        <div class="col-md-10">
+            <img src="@Model.validationImage" alt="Alternate Text" />
+            <Input type="hidden" id="validationValue" name="validationValue" size="100" value="@Model.correctValidationValue" />
+            <Input type="text" id="userInput" name="userInput" size="4" value="@Model.initialValidationValue" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" name="Create" id="Create" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
 }
+<script type="text/javascript">
+    $(document).ready(function () {
+        //alert($('#validationValue').val());
+        $('#Create').click(function (event) {
+            var userInput = $('#userInput').val().trim();
+            var validationValue = $('#validationValue').val().trim();
+            var AuthorName = $('#AuthorName').val().trim();
+            var QuoteText = $('#QuoteText').val().trim();
+            var CategoryId = $('#CategoryId').val().trim();
+            var OutputMessage = "";
+            //alert("entered");
+            if (userInput != validationValue) {
+                OutputMessage += "Invalid Validation Code\n";
+            }
+            if (AuthorName.length == 0) {
+                OutputMessage += "Author Name Required\n";
+            }
+            if (QuoteText.length == 0) {
+                OutputMessage += "Quote is Required\n";
+            }
+            if (CategoryId == 33) {
+                OutputMessage += "Category is required\n";
+            }
+            if (OutputMessage != "") {
+                event.preventDefault()
+                alert(OutputMessage);
+            }
+        });
+    });  
+</script>
 
 <div>
     @Html.ActionLink("Back to List", "Index")

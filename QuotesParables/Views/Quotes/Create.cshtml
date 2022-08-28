@@ -35,7 +35,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.AuthorName, htmlAttributes: new { @class = "text-primary col-md-2" })
         <div class="col-md-10">
-            <Input type="text" id="AuthorName" size="100" name="AuthorName" style='color: blue; font-size: 18px;' value="" />
+            <Input type="text" id="AuthorName" size="100" name="AuthorName" style='color: blue; font-size: 18px;' value="@Model.AuthorName" />
             @Html.ValidationMessageFor(model => model.AuthorName, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -115,13 +115,11 @@
     <div class="form-group">
         Verify that you are not a Robot by providing the validation code below. 
         <div class="col-md-10">
-            <img src="..\Images\16.jpg" alt="Alternate Text" />
-            <Input type="hidden" id="validationValue" name="validationValue" size="100" value="@Model.validationValue" />
-            <Input type="text" id="userInput" name="userInput" size="4" value="" />
+            <img src="@Model.validationImage" alt="Alternate Text" />
+            <Input type="hidden" id="validationValue" name="validationValue" size="100" value="@Model.correctValidationValue" />
+            <Input type="text" id="userInput" name="userInput" size="4" value="@Model.initialValidationValue" />
         </div>
     </div>
-
-
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Create" name="Create" id="Create" class="btn btn-primary" />
