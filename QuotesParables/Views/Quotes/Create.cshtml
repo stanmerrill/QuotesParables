@@ -112,8 +112,8 @@
         </div>
     </div>
 
-    <div class="form-group">
-        Verify that you are not a Robot by providing the validation code below. 
+    <div class="form-group text-danger fw-bold">
+        Verify that you are human by providing the validation code below. 
         <div class="col-md-10">
             <img src="@Model.validationImage" alt="Alternate Text" />
             <Input type="hidden" id="validationValue" name="validationValue" size="100" value="@Model.correctValidationValue" />

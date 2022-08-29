@@ -15,6 +15,19 @@ namespace QuotesParables.Controllers
 {
     public class QuotesController : Controller
     {
+        private static Dictionary<int, string> imageDictionary = new Dictionary<int, string>();
+        private Dictionary<int, string> getDictionary()
+        {
+            if (imageDictionary.Count == 0)
+            {
+                imageDictionary.Add(0, "16");
+                imageDictionary.Add(1, "17");
+                imageDictionary.Add(2, "22");
+                imageDictionary.Add(3, "29");
+                imageDictionary.Add(4, "34");
+            }
+            return imageDictionary;
+        }
         private QuotesContext db = new QuotesContext();
 
         // GET: Quotes
@@ -239,12 +252,7 @@ namespace QuotesParables.Controllers
 
         private string getRandomValue()
         {
-            Dictionary<int, string> imageDictionary = new Dictionary<int, string>();
-            imageDictionary.Add(0, "16");
-            imageDictionary.Add(1, "17");
-            imageDictionary.Add(2, "22");
-            imageDictionary.Add(3, "29");
-            imageDictionary.Add(4, "34");
+            Dictionary<int, string> imageDictionary = getDictionary();
             Random r = new Random();
             int genRand = r.Next(0, 4);
             return imageDictionary[genRand]; 
