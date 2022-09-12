@@ -42,7 +42,7 @@
                         @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand active" })
                         @Html.ActionLink("Quotes", "Index", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
                         @Html.ActionLink("Add Quote", "Create", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
-                        <a class="navbar-brand active" href="https://beingmindful.com">Being Mindful</a>
+                        <a class="navbar-brand active" href="https://beingmindful.com" target="_blank">Being Mindful</a>
                         @{ if (securityLevelInt > 3)
                             {
                                 @Html.ActionLink("UnApproved", "UnApproved", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
