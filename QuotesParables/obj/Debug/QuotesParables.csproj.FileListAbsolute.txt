@@ -611,7 +611,7 @@ C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\bin\M
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.csproj.CopyComplete
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.dll
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.pdb
-C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.csproj.AssemblyReference.cache
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.Migrations.z.resources
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.Migrations.contributorNull.resources
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.Migrations.changeFieldName.resources
+C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables\obj\Debug\QuotesParables.csproj.AssemblyReference.cache

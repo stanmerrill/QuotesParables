@@ -401,6 +401,21 @@
 <script type="text/javascript">
     $(document).ready(function () {
         //alert("hello");
+        $("#resetSearchButton").click(function (event) {
+            $("#SearchText").val("");
+            $("#searchQuoteTypeId").val("0");
+            $("#searchCategoryId").val("0");
+            $("#SearchText").focus();
+            return true;
+        });
+        $("#searchCategoryId").on("change", function () {
+            //alert("hello");
+            $("#SUBMITSEARCH").trigger("click");
+        });
+        $("#searchQuoteTypeId").on("change", function () {
+            //alert("hello");
+            $("#SUBMITSEARCH").trigger("click");
+        });
         $('#instructions').hide();
         $('#idHideButton').hide();
         $('#idShowButton').click(function (event) {
@@ -415,14 +430,13 @@
             $('#idShowButton').show();
             $('#idHideButton').hide();
         });
-        $("#SearchText").focus();
-        $("#resetSearchButton").click(function (event) {
-            $("#SearchText").val("");
-            $("#searchQuoteTypeId").val("0");
-            $("#searchCategoryId").val("0");
-            $("#SearchText").focus();
-            return true;
+        $("#SearchText").on("change",function (event) {
+            var code = e.keyCode || e.which;
+            if (code == 13 || code == 9) {
+                $("#SUBMITSEARCH").trigger("click");
+            }
         });
+        $("#SearchText").focus();
     });
 
 

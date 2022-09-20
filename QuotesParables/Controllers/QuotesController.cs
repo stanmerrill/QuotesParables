@@ -132,9 +132,7 @@ namespace QuotesParables.Controllers
                 if (myViewModel.searchText != null && myViewModel.searchText.Trim().Length > 0)
                 {
                     searchText = myViewModel.searchText.Trim();
-                    mySet = mySet.Where(x => x.AuthorName.Contains(searchText)
-                        || x.QuoteText.Contains(searchText)
-                        );
+                    mySet = mySet.Where(x => x.AuthorName.Contains(searchText) || x.QuoteText.Contains(searchText) || x.Contributor.Contains(searchText));
                 }
                 if (myViewModel.searchCategoryId > 0)
                 {
