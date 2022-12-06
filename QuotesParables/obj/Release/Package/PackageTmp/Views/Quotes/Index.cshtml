@@ -250,12 +250,21 @@
                     sb.Append("                <div>");
                     sb.Append(Environment.NewLine);
 
-                    // Full Quote
-                    modifiedQuote = item.QuoteText.Replace("'", "`").Replace("\"", "`").Replace(System.Environment.NewLine, "\\n ");
-                    sb.Append("          <input type=\"button\" class=\"btn btn-primary\" value=\"Full Quote\" onclick=\"alert('");
-                    sb.Append(modifiedQuote);
-                    sb.Append("')\">");
-                    sb.Append(Environment.NewLine);
+                    // Full Quote for popup window
+                    //modifiedQuote = item.QuoteText.Replace("'", "`").Replace("\"", "`").Replace(System.Environment.NewLine, "\\n ");
+                    //sb.Append("          <input type=\"button\" class=\"btn btn-primary\" value=\"Full Quote\" onclick=\"alert('");
+                    //sb.Append(modifiedQuote);
+                    //sb.Append("')\">");
+                    //sb.Append(Environment.NewLine);
+                    //View--------------------------------
+                    //View--------------------------------
+                    //View--------------------------------
+                    sb.Append("                    <a href=\"/Quotes/View/");
+                    sb.Append(item.QuoteId);
+                    sb.Append("\" class=\"btn btn-primary\" target=\"_self\""); sb.Append(Environment.NewLine);
+                    sb.Append("                       rel=\"noopener noreferrer\">View</a>"); sb.Append(Environment.NewLine);
+                    //like--------------------------------
+                    //like--------------------------------
                     //like--------------------------------
                     sb.Append("                    <a href=\"/Quotes/Like/");
                     sb.Append(item.QuoteId);
