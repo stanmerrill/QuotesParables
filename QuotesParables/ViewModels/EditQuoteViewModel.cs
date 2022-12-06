@@ -20,6 +20,11 @@ namespace QuotesParables.ViewModels
         [Display(Name = "Quote Text")]
         public string QuoteText { get; set; }
 
+        [StringLength(10000)]
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Quote Text Raw")]
+        public string QuoteTextRaw { get; set; }
+
         [MaxLength(30), MinLength(1)]
         [StringLength(30)]
         [Display(Name = "Author Name")]

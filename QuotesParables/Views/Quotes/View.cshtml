@@ -1,4 +1,5 @@
 ﻿@using System.Text;
+@using QuotesParables.Utilities;
 @model QuotesParables.Models.Quote
 
 @{
@@ -44,21 +45,7 @@
 
             <dd>
                 @{
-                    StringBuilder sb = new StringBuilder();
-                    string currentLine = Model.QuoteText.Replace(Environment.NewLine, "~").TrimEnd();
-                    string outputLine = "";
-                    string[] lines = currentLine.Split('~');
-                    foreach (string line in lines)
-                    {
-                        if (line.Trim() != "")
-                        {
-                            outputLine = "<p class=\"textBodyDiv h6\" \">" + line + "</p>";
-
-                            sb.Append(outputLine);
-                        }
-                    }
-                    sb.Append(Environment.NewLine);
-                    string myQuoteText = sb.ToString();
+                    string myQuoteText = ParseUtil.createRawData(Model.QuoteText);
                 }
                 @Html.Raw(myQuoteText)
             </dd>

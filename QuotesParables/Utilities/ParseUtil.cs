@@ -26,11 +26,11 @@ namespace QuotesParables.Utilities
                 {
                     if (quoteText.Trim() != "")
                     {
-                        if (FindDuplicates.duplicateExists(quoteText,0))
+                        if (FindDuplicates.duplicateExists(quoteText, 0))
                         {
                             sbDuplicateRecords.Append(quoteText);
                             sbDuplicateRecords.Append(System.Environment.NewLine);
-                            ro.IsValid = false; 
+                            ro.IsValid = false;
                         }
                         else
                         {
@@ -63,7 +63,7 @@ namespace QuotesParables.Utilities
                 }
                 ro.ReturnObj1 = sbDuplicateRecords.ToString();
                 ro.ReturnObj2 = recordsInserted;
-                return ro; 
+                return ro;
             }
             catch (Exception exception)
             {
@@ -127,6 +127,24 @@ namespace QuotesParables.Utilities
             }
             return ro;
         }
+        static public string createRawData(string input)
+        {
+            StringBuilder sb = new StringBuilder();
+            string currentLine = input.Replace(Environment.NewLine, "~").TrimEnd();
+            string outputLine = "";
+            string[] lines = currentLine.Split('~');
+            foreach (string line in lines)
+            {
+                if (line.Trim() != "")
+                {
+                    outputLine = "<p class=\"textBodyDiv h6\" \">" + line + "</p>";
 
+                    sb.Append(outputLine);
+                }
+            }
+            sb.Append(Environment.NewLine);
+            string myQuoteText = sb.ToString();
+            return myQuoteText;
+        }
     }
 }
