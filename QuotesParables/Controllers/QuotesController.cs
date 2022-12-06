@@ -215,6 +215,22 @@ namespace QuotesParables.Controllers
             return View(quote);
         }
 
+        public ActionResult View(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Quote quote = db.Quotes.Find(id);
+            if (quote == null)
+            {
+                return HttpNotFound();
+            }
+            return View(quote);
+        }
+
+
+
         // GET: Quotes/Create
         public ActionResult Create()
         {

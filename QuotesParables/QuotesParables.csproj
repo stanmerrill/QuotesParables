@@ -324,6 +324,7 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Quotes\FindDuplicates.cshtml" />
     <Content Include="Views\Home\Blubbles.html" />
+    <Content Include="Views\Quotes\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
