@@ -41,7 +41,8 @@
                     <li class="nav-item">
                         @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand active" })
                         @Html.ActionLink("Quotes", "Index", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
-                        @Html.ActionLink("Add Quote", "Create", "Quotes", new { area = "" }, new { @class = "navbar-brand" })
+                        <a class="navbar-brand" href="https://mydharmaquotes.com/Quotes/Create">Add Quote</a>
+                        @*@Html.ActionLink("Add Quote", "Create", "Quotes", new { area = "" }, new { @class = "navbar-brand" })*@
                         <a class="navbar-brand active" href="https://beingmindful.com" target="_blank">Being Mindful</a>
                         @{ if (securityLevelInt > 3)
                             {
