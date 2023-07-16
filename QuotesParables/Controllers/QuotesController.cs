@@ -359,11 +359,61 @@ namespace QuotesParables.Controllers
             editQuoteViewModel.CategoryDictionary = CategoryUtility.getCategoryDictionaryIntString();
             editQuoteViewModel.CategoryArraylist = CategoryUtility.getCategoryArraylist();
             editQuoteViewModel.repeatUpdate = getRepeatUpdate();
+            //--------------------------------------
+            // Category Select Box
+            //--------------------------------------            
+            ReturnObject ro = new ReturnObject();
+            SelectBoxParameters selectBoxParameters = new SelectBoxParameters();
+            selectBoxParameters.fieldDisplayName = "Category 1";
+            selectBoxParameters.fieldName = "CategoryId";
+            selectBoxParameters.currentValue = quote.CategoryId.ToString();
+            string outputString;
+            ArrayList categoryArrayList = CategoryUtility.getCategoryArraylist();
+            ro = HTMLUtility.getCategorySelectBoxStringFromArrayListAndSBParms(selectBoxParameters, categoryArrayList, out outputString);
+            editQuoteViewModel.categorySelectBox = outputString;
+            //--------------------------------------
+            // Category 2 Select Box
+            //--------------------------------------            
+            ro = new ReturnObject();
+            selectBoxParameters = new SelectBoxParameters();
+            selectBoxParameters.fieldDisplayName = "Category 2";
+            selectBoxParameters.fieldName = "CategoryId2";
+            selectBoxParameters.currentValue = quote.CategoryId2.ToString();
+            ro = HTMLUtility.getCategorySelectBoxStringFromArrayListAndSBParms(selectBoxParameters, categoryArrayList, out outputString);
+            editQuoteViewModel.category2SelectBox = outputString;
+            //--------------------------------------
+            // Category 3 Select Box
+            //--------------------------------------            
+            ro = new ReturnObject();
+            selectBoxParameters = new SelectBoxParameters();
+            selectBoxParameters.fieldDisplayName = "Category 3";
+            selectBoxParameters.fieldName = "CategoryId3";
+            selectBoxParameters.currentValue = quote.CategoryId3.ToString();
+            ro = HTMLUtility.getCategorySelectBoxStringFromArrayListAndSBParms(selectBoxParameters, categoryArrayList, out outputString);
+            editQuoteViewModel.category3SelectBox = outputString;
+            //--------------------------------------
+            // Quote Type Select Box
+            //--------------------------------------            
+            ro = new ReturnObject();
+            ArrayList typeArrayList = new ArrayList(); using (var context = new QuotesContext())
+            {
+                IEnumerable<QuoteType> typeArray = context.QuoteType.OrderBy(x => x.QuoteTypeDescription);
+                
+                foreach (QuoteType type in typeArray)
+                {
+                    typeArrayList.Add(type);
+                }
+            }
+            selectBoxParameters = new SelectBoxParameters();
+            selectBoxParameters.fieldDisplayName = "Quote Type";
+            selectBoxParameters.fieldName = "QuoteTypeId";
+            selectBoxParameters.currentValue = quote.QuoteTypeId.ToString();
+            ro = HTMLUtility.getTypeSelectBoxStringFromArrayListAndSBParms(selectBoxParameters, typeArrayList, out outputString);
+            editQuoteViewModel.typeSelectBox = outputString;
             ViewBag.CategoryId = new SelectList(db.Categories.OrderBy(x => x.Description), "CategoryId", "Description", quote.CategoryId);
-            ViewBag.quoteTypeId = new SelectList(db.QuoteType, "QuoteTypeId", "QuoteTypeDescription");
+            ViewBag.quoteTypeId = new SelectList(db.QuoteType, "QuoteTypeId", "QuoteTypeDescription",quote.QuoteType);
             return View(editQuoteViewModel);
         }
-
         // POST: Quotes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -384,7 +434,7 @@ namespace QuotesParables.Controllers
                     lengthBefore = editQuoteViewModel.QuoteText.Length;
                     newQuote.QuoteText = editQuoteViewModel.QuoteText.TrimEnd();
                     lengthAfter = newQuote.QuoteText.Length;
-
+                    //int cat1 = Request.Form["CategoryId"];
                     newQuote.AuthorName = editQuoteViewModel.AuthorName;
                     newQuote.CategoryId = editQuoteViewModel.CategoryId;
                     newQuote.CategoryId2 = editQuoteViewModel.CategoryId2;

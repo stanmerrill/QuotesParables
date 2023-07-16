@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,22 @@ namespace QuotesParables.Tests.Controllers
     [TestClass]
     public class QuotesControllerTest
     {
+        [TestMethod]
+        public void getCategorySelectBox()
+        {
+            // Arrange
+            ReturnObject ro = new ReturnObject();
+            SelectBoxParameters selectBoxParameters = new SelectBoxParameters();
+            selectBoxParameters.fieldDisplayName = "Category 1";
+            selectBoxParameters.fieldName = "category1";
+            selectBoxParameters.currentValue = "13";
+            string outputString; 
+            ArrayList categoryArrayList = CategoryUtility.getCategoryArraylist();
+            // Act
+            ro = HTMLUtility.getCategorySelectBoxStringFromArrayListAndSBParms(selectBoxParameters,categoryArrayList,out outputString);
+            // Assert
+            Assert.IsTrue(ro.IsValid);
+        }
         [TestMethod]
         public void replaceEmbeddedPoundSign()
         {

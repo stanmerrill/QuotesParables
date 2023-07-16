@@ -214,6 +214,7 @@
     <Compile Include="Models\Rating.cs" />
     <Compile Include="Models\QuoteType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\HTMLUtility.cs" />
     <Compile Include="Utilities\CategoryUtility.cs" />
     <Compile Include="Utilities\EmailUtility.cs" />
     <Compile Include="Utilities\Encryptor.cs" />

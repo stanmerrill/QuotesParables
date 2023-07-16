@@ -86,6 +86,10 @@ namespace QuotesParables.ViewModels
         public string imageLink { get; set; }
         public string correctValidationValue { get; set; }
         public string initialValidationValue { get; set; }
+        public string categorySelectBox { get; set; }
+        public string category2SelectBox { get; set; }
+        public string category3SelectBox { get; set; }
+        public string typeSelectBox { get; set; }
         public string validationImage { get; set; }
         public string getUpdateUser()
         {

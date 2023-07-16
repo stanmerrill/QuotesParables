@@ -28,47 +28,55 @@
         </div>
     </div>
     @*-------------Category 1 *@
-    <div class="form-group">
-        @Html.LabelFor(model => model.CategoryId, new { @class = "text-primary col-md-2" })
+<div class="form-group">
+    @Html.Raw(@Model.categorySelectBox)
+    @*@Html.LabelFor(model => model.CategoryId, new { @class = "text-primary col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.CategoryId,
                                                                              new SelectList(
                                                                                  Model.CategoryDictionary,
                                                                                  "Key",
-                                                                                 "Value", Model.CategoryId), htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
+                                                                                 "Value", Model.CategoryId.ToString()), htmlAttributes: new { @class = "form-control" })
+        </div>*@
+</div>
     @*-------------Category 2 *@
-    <div class="form-group">
-        @Html.LabelFor(model => model.CategoryId2, new { @class = "text-primary col-md-2" })
+<div class="form-group">
+    @Html.Raw(@Model.category2SelectBox)
+    @*@Html.LabelFor(model => model.CategoryId2, new { @class = "text-primary col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.CategoryId2,
                                                                   new SelectList(
                                                                       Model.CategoryDictionary,
                                                                       "Key",
-                                                                      "Value", Model.CategoryId2), htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
+                                                                      "Value", Model.CategoryId2),
+                                                                      htmlAttributes: new { @class = "form-control" })
+        </div>*@
+</div>
     @*-------------Category 3 *@
-    <div class="form-group">
-        @Html.LabelFor(model => model.CategoryId3, new { @class = "text-primary col-md-2" })
+<div class="form-group">
+    @Html.Raw(@Model.category3SelectBox)
+
+    @*@Html.LabelFor(model => model.CategoryId3, new { @class = "text-primary col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.CategoryId3,
                                                                        new SelectList(
                                                                            Model.CategoryDictionary,
                                                                            "Key",
                                                                            "Value", Model.CategoryId3), htmlAttributes: new { @class = "form-control" })
-        </div>
-    </div>
+        </div>*@
+</div>
     @*-------------*Type*@
-    <div class="form-group">
-        <label class="text-primary col-md-2" for="QuoteTypeId">Type</label>
-        @*@Html.LabelFor(model => model.QuoteTypeId, "QuoteTypeId", htmlAttributes: new { @class = "text-primary col-md-2" })*@
-        <div class="col-md-10">
-            @Html.DropDownList("QuoteTypeId", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.QuoteTypeId, "", new { @class = "text-danger" })
-        </div>
-    </div>
+<div class="form-group">
+    @Html.Raw(@Model.typeSelectBox)
+
+    <!--<label class="text-primary col-md-2" for="QuoteTypeId">Type</label>-->
+    @*@Html.LabelFor(model => model.QuoteTypeId, "QuoteTypeId", htmlAttributes: new { @class = "text-primary col-md-2" })*@
+    <!--<div class="col-md-10">
+        @Html.DropDownList("QuoteTypeId", null, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.QuoteTypeId, "", new { @class = "text-danger" })
+    </div>-->
+
+</div>
     @*-------------submit
         @*-------------*@
     <div class="form-group">
@@ -161,7 +169,6 @@
     </div>
 
 </div>
-                    }
                     }
 
                     @section Scripts {
