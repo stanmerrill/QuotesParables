@@ -35,6 +35,11 @@ namespace QuotesParables.Controllers
         {
             QuoteListViewModel myViewModel = GetViewModelForList("Y");
             myGlobals.CurrentContext = "QuotesContext";
+            if (HttpContext.Session["ErrorMessages"] != null)
+            {
+                ViewBag.ErrorMessages = HttpContext.Session["ErrorMessages"];
+                HttpContext.Session["ErrorMessages"] = null;
+            }
             return View(myViewModel);
         }
 
@@ -426,7 +431,8 @@ namespace QuotesParables.Controllers
         {
             if (ModelState.IsValid)
             {
-                try {
+                try
+                {
                     Quote newQuote = new Quote();
                     newQuote.QuoteId = editQuoteViewModel.QuoteId;
 
@@ -473,8 +479,14 @@ namespace QuotesParables.Controllers
                     {
                         errorList.Add(exception.InnerException.InnerException.Message);
                     }
-                    ViewBag.ErrorMessages = errorList;
+                    Session["ErrorMessages"] = errorList;
                 }
+            }
+            else
+            {
+                ArrayList errorList = new ArrayList();
+                errorList.Add("Your quote exceeded the character limit");
+                Session["ErrorMessages"] = errorList;
             }
             return RedirectToAction("Index", "Quotes");
         }
@@ -506,7 +518,7 @@ namespace QuotesParables.Controllers
                 {
                     errorList.Add(exception.InnerException.InnerException.Message);
                 }
-                ViewBag.ErrorMessages = errorList;
+                Session["ErrorMessages"] = errorList;
             }
             return RedirectToAction("Index", "Quotes");
         }

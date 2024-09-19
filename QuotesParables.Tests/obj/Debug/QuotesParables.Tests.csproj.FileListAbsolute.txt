@@ -417,7 +417,7 @@ C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables.Tests
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables.Tests\bin\Debug\System.Web.Optimization.xml
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables.Tests\bin\Debug\Antlr3.Runtime.pdb
-C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.csproj.CopyComplete
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.dll
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.pdb
 C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables.Tests\obj\Debug\QuotesParables.Tests.csproj.AssemblyReference.cache
+C:\Users\stan\OneDrive\Documents\development\QuotesParables\QuotesParables.Tests\obj\Debug\QuotesPa.0F952EC9.Up2Date
