@@ -56,7 +56,7 @@ namespace QuotesParables.Controllers
             ReturnObject ro = new ReturnObject();
             QuoteListViewModel myViewModel = new QuoteListViewModel();
             myViewModel.searchCategoryId = getsearchCategoryId();
-            myViewModel.searchQuoteTypeId = getSearchDataTypeId();
+            myViewModel.searchQuoteTypeId = getSearchQuoteTypeId();
             myViewModel.searchText = getSessionSearchText();
             myViewModel.CategoryDropDown = db.Categories.OrderBy(x => x.Description).ToList();
             myViewModel.TypeDropDown = db.QuoteType.OrderBy(x => x.QuoteTypeDescription).ToList();
@@ -666,9 +666,9 @@ namespace QuotesParables.Controllers
                 return searchText.ToString();
             }
         }
-        public int getSearchDataTypeId()
+        public int getSearchQuoteTypeId()
         {
-            var searchDataTypeId = HttpContext.Session["searchDataTypeId"];
+            var searchDataTypeId = HttpContext.Session["searchQuoteTypeId"];
             if (searchDataTypeId == null)
             {
                 return 0;

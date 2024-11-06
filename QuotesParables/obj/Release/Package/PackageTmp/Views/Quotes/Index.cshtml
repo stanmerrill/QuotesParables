@@ -447,7 +447,7 @@
             $('#idShowButton').show();
             $('#idHideButton').hide();
         });
-        $("#SearchText").on("change", function (event) {
+        $("#SearchText").on("change", function (e) {
             var code = e.keyCode || e.which;
             if (code == 13 || code == 9) {
                 $("#SUBMITSEARCH").trigger("click");
